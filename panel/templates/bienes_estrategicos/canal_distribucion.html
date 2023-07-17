@@ -1,0 +1,26 @@
+{% extends 'index_second.html' %}
+
+{% block title %}
+  Canal de Distribución
+{% endblock %}
+
+{% block script %}
+<script>
+  let flag = 1
+  let template = 'canal_distribucion'
+</script>
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript"> 
+  document.onkeydown = function(){return false};
+</script>  
+
+<iframe id="frame" width="100%" style="margin: 0 !important; height: 100vh;"></iframe>
+
+<!-- https://app.powerbi.com/view?r=eyJrIjoiMDMyZDJlZmEtNDhlMC00ZGJhLWEyMzItMDM4NjhlYTlkNjEwIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9 -->
+
+   
+
+{% endblock %}

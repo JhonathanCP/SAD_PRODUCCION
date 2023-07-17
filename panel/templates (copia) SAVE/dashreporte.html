@@ -1,0 +1,17 @@
+{% extends 'index_master.html' %}
+
+{% load plotly_dash %}
+
+{% block content %}
+<!-- page content -->
+<div class="right_col" role="main">
+    <h3>Dash Reporte</h3>
+    <div class="{% plotly_class name='reporte' %} card col-xl-12 col-md-12 col-lg-12"
+        style="max-height:100%; width:100%">
+        {% plotly_app name='reporte' ratio=0.8 %}
+
+    </div>
+
+
+
+    {% endblock %}

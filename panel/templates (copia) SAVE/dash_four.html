@@ -1,0 +1,17 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+{% load plotly_dash %}
+<!-- page content -->
+<div class="right_col" role="main">
+    <h3>Dash Reporte</h3>
+    <div class="{% plotly_class name='pruebacallback' %} card col-xl-12 col-md-12 col-lg-12"
+        style="max-height:100%; width:100%">
+        {% plotly_app name='pruebacallback' ratio=2.1 %}
+
+    </div>
+    
+
+
+
+    {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'index_second.html' %}
+
+{% block title %}
+  Carga de Consumo
+{% endblock %}
+
+{% block script %}
+<script>
+  let flag = 1
+  let template = 'carga_consumo'
+</script>
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript"> 
+  document.onkeydown = function(){return false};
+</script>  
+
+<iframe id="frame" width="100%" style="margin: 0 !important; height: 100vh;"></iframe>
+
+
+
+
+{% endblock %}

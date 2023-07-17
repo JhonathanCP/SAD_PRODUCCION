@@ -1,0 +1,327 @@
+{% extends 'index_second.html' %}
+
+{% block title %}
+    Solicitudes
+{% endblock %}
+
+{% block links %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block css %} 
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+{% endblock %}
+
+{% block script %}
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div class="table-responsive" >
+    <div class="container-fluid" style="padding: 35px 35px 35px 35px;">
+        <!-- nueva tabla -->
+        <div class="card">
+          <div class="border-bottom title-part-padding">
+            <h4 class="card-title mb-0">Content Type <button type="button" id="btn_content" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              Nuevo
+            </button></h4> 
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="t_add_row" class="table table-striped table-bordered display text-nowrap" style="width: 100%" >
+                <thead>
+                  <!-- start row -->
+                  <tr>
+                    <th data-bs-toggle="true">ID</th>
+                    <th>App_Label</th>
+                    <th>Type_model</th>
+                    <th >Acción</th>
+                  </tr>
+                  <!-- end row -->
+                </thead>
+                <tbody>
+                  {% for content_type in content_type %}
+                    <tr>
+                        <th>{{content_type.id}}</th>
+                        <td>{{content_type.app_label}}</td>
+                        <td>{{content_type.model}}</td>
+                        {% if content_type.id > 14 %}
+                        <td width="140px"><button type="button" id="btn_editar" onclick="set_content({{content_type.id}})" class="btn btn-primary" data-toggle="modal" data-target="#editContentType"> Editar </button> &nbsp; <button type="button" id="delete{{content_type.id}}" onclick="delete_app_label({{content_type.id}})" class="btn btn-danger text-white" value=""> Eliminar </button></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+               </table>
+            </div>
+          </div>
+        </div> 
+   </div>
+</div>
+
+
+<!-- Modal para registro -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Content Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{% url 'new_content_type' %}" method="POST">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-2">
+              <input type="text" id="number_content" name="number_content" class="form-control" placeholder="ID" readonly>
+            </div>
+            <div class="col">
+              <input type="text" id="app_label" name="app_label" class="form-control" placeholder="App Label" required>
+            </div>
+            <div class="col">
+              <input type="text" id="type_model" name="type_model" class="form-control" placeholder="Type Model" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Final Modal para registro -->
+
+<!-- Modal para actualizar -->
+<div class="modal fade" id="editContentType" tabindex="-1" role="dialog" aria-labelledby="editContentTypeTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Registro Content</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-2">
+              <input type="text" id="edit_content" name="number_content" class="form-control" placeholder="ID" readonly>
+            </div>
+            <div class="col">
+              <input type="text" id="edit_label" name="app_label" class="form-control" placeholder="App Label" required>
+            </div>
+            <div class="col">
+              <input type="text" id="edit_model" name="type_model" class="form-control" placeholder="Type Model" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" onclick="update_content_type()" class="btn btn-primary">Actualizar</button>
+        </div>
+      
+    </div>
+  </div>
+</div>
+<!-- Fin Modal para actualizar -->
+
+<script>
+  let modal_registro = document.querySelector('#exampleModalCenter')
+  let modal_editar = document.querySelector('#editContentType')
+  let btn_crear = document.querySelector('#btn_content')
+  let number_content = document.querySelector('#number_content')
+  //inputs update
+  let id_content = document.querySelector('#edit_content')
+  let edit_label = document.querySelector('#edit_label')
+  let edit_model = document.querySelector('#edit_model')
+
+  
+  btn_crear.onclick = function() {
+    modal_registro.setAttribute('data-backdrop','static')
+    console.log('presiona onclick 1')
+
+    fetch('/count_content_type/', {
+      method: 'GET'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Error en la solicitud');
+      }
+    })
+    .then(data => {
+      let number = data.count + 1
+      console.log(number)
+      number_content.value = number
+      // Hacer algo con los datos obtenidos
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal_registro || event.target == modal_editar) {
+      console.log('entré registrar')
+      event.stopPropagation(); // Detener la propagación del evento
+    }
+  }
+
+  function update_content_type(){
+    let id = id_content.value
+    let app = edit_label.value
+    let model = edit_model.value
+    console.log(id + ' ' + app + ' ' + model)
+
+    data = {'id_content': id, 'app_label': app, 'model': model}
+    fetch('/update/content/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => 
+      {
+        if(data.rpta){
+          let modal = document.getElementById('editContentType');
+          modal.classList.remove('show');
+          modal.style.display = 'none';
+          Swal.fire({
+            title: '¡Actualizado!',
+            text: 'El Model ha sido actualizado.',
+            icon: 'success',
+            confirmButtonText: '¡Ok!',
+            allowOutsideClick: false
+          }).then((result) => {
+            window.location.reload();
+          })
+          
+        }
+      })                    
+    .catch(error => console.error(error))
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  }
+
+  function delete_app_label(id){
+    Swal.fire({
+      title: '¿Está seguro de eliminar?',
+      text: "¡Esta acción no podrá revertirse!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Sí, eliminar!',
+      allowOutsideClick: false
+    }).then((result) => {
+        if (result.isConfirmed) {
+          console.log('presiono confirma')
+          const data = { 'id_label': id }
+          fetch('/app_label/delete/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+            body: JSON.stringify(data)
+          })
+          .then(response => response.json())
+          .then(data => 
+          {
+            if(data.rpta){
+              Swal.fire({
+                title: '¡Eliminado!',
+                text: 'El Model ha sido eliminado.',
+                icon: 'success',
+                confirmButtonText: '¡Ok!',
+                allowOutsideClick: false
+              }).then((result) => {
+                window.location.reload();
+              })
+              
+            }
+          })                    
+          .catch(error => console.error(error));
+          function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+                }
+              }
+            }
+            return cookieValue;
+          }
+
+          
+        }
+      })
+  }
+
+  function set_content(id){
+    modal_editar.setAttribute('data-backdrop','static')
+    const data = { id_content: id };
+    fetch('/set/content/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      id_content.value = data.data[0].id
+      edit_label.value = data.data[0].app_label
+      edit_model.value = data.data[0].model
+    })                    
+    .catch(error => console.error(error));
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  }
+
+
+ </script>
+
+
+{% endblock %}
+
+{% block scriptf %}
+  
+{% endblock %}

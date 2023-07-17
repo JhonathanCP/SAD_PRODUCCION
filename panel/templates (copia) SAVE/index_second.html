@@ -1,0 +1,538 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title> UGAD - {% block title %} {% endblock %} </title>
+    <link rel="shortcut icon" href="{% static 'assets/images/icon/favicon1.ico' %}">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{% static 'assets/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- links nuevos -->
+    <link
+      rel="canonical"
+      href="https://www.wrappixel.com/templates/materialpro/"
+    />
+    <!-- Favicon icon -->
+    <link
+      rel="canonical"
+      href="https://www.wrappixel.com/templates/materialpro/"
+    />
+
+    <link
+      href="{% static 'assets2/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %} "
+      rel="stylesheet"
+    />
+
+    <link      
+      type="text/css"
+      href="{% static 'assets2/extra-libs/prism/prism.css' %}"
+      rel="stylesheet"
+    />
+
+    
+    <!-- Custom CSS -->
+    <link href="{% static 'dist2/css/style.min.css' %}" rel="stylesheet" />
+
+     {% block links %}
+     {% endblock %} 
+
+    <!-- Vendors styles-->
+    <link href="{% static 'vendors/simplebar/css/simplebar.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/vendors/simplebar.css' %}" rel="stylesheet">  <!-- probable que el css no este leyendo-->
+    <!-- Main styles for this application-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"> 
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css" rel="stylesheet">
+    <link href="{% static 'css/examples.css' %}" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% block css %} {% endblock%}
+    {% block script %} {% endblock%}
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      // Shared ID
+      gtag('config', 'UA-118965717-3');
+      // Bootstrap ID
+      gtag('config', 'UA-118965717-5');
+    </script>
+    <link href="{% static 'vendors/@coreui/chartjs/css/coreui-chartjs.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar" style="background-color: #1e88e5;">
+      <div class="sidebar-brand d-none d-md-flex">
+       <a href="{% url 'prestaciones' %}">  <img
+        class="sidebar-brand-full"                  
+        src="{% static 'assets/brand/Imagen3.png' %}"
+        width="178" height="46" 
+        alt="homepage"
+        class="dark-logo"
+        /></a> 
+        <a href="{% url 'prestaciones' %}"><img
+        width="56" height="40"
+        class="sidebar-brand-narrow"                  
+        src="{% static 'assets/brand/logo_gcopinfo2.png' %}"
+        width="178" height="46" 
+        alt="homepage"
+        class="dark-logo"
+        /></a> 	 	
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        {% if perms.panel.view_user %}
+        <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-speedometer"></use>
+            </svg> Panel de Administración</a></li>
+        <li class="nav-title">Theme</li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">
+            <svg class="nav-icon">
+              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-drop"></use>
+            </svg> Roles</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'view_content_type' %}">
+            <svg class="nav-icon">
+              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-drop"></use>
+            </svg> Content Type </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'userView' %}">
+            <svg class="nav-icon">
+              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-user"></use>
+            </svg> Usuarios</a>
+        </li>
+        <!-- Solicitudes -->
+        <li class="nav-item"><a class="nav-link" href="{% url 'view_solicitud' %}">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window" viewBox="0 0 16 16">
+            <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+            <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
+          </svg> Solicitudes</a>
+        </li>
+        <li class="nav-title">Componentes</li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+          </svg>Población</a>
+        </li>
+        
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-pulse" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5Z"/>
+            <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z"/>
+          </svg> Consulta Externa</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Asignación de Citas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Disponibilidad de Cupos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Diferimiento</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-medical" viewBox="0 0 16 16">
+            <path d="M8.5 4.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L7 6l-.549.317a.5.5 0 1 0 .5.866l.549-.317V7.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L9 6l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V4.5zM5.5 9a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+          </svg> Centro Quirúrgico</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#"> Producción Quirúrgica</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Lista de Espera</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Indicación Quirúrgica </a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="forms/range.html"> Range</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/input-group.html"> Input group</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/floating-labels.html"> Floating labels</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/layout.html"> Layout</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/validation.html"> Validation</a></li> -->
+          </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
+            <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z"/>
+            <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z"/>
+          </svg> Hospitalización</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#"> Estancia</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Porcentaje de ocupación</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Disponibilidad de camas</a></li>
+            
+          </ul>
+        </li>
+        {% endif %}
+        {% if perms.altad.view_altadireccion %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+          </svg> Alta dirección</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'alta_direccion' %}"><span class="nav-icon"></span> Estado situacional de <br> Essalud </a></li>
+            
+          </ul>
+        </li>
+        {% endif %}
+        {% if perms.emer.view_emergencia %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-pulse" viewBox="0 0 16 16">
+            <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+            <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+            <path d="M9.979 5.356a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.926-.08L4.69 10H4.5a.5.5 0 0 0 0 1H5a.5.5 0 0 0 .447-.276l.936-1.873 1.138 3.793a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h.5a.5.5 0 0 0 0-1h-.128L9.979 5.356Z"/>
+          </svg> Emergencia</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'servicio_emergencia' %}"><span class="nav-icon"></span> Servicio de Emergencia</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="{% url 'dashinteractivo' %}"><span class="nav-icon"></span> Emergencia 2 </a></li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="notifications/modals.html"><span class="nav-icon"></span> Modals</a></li>
+            <li class="nav-item"><a class="nav-link" href="notifications/toasts.html"><span class="nav-icon"></span> Toasts</a></li> -->
+          </ul>
+        </li>
+        {% endif %}
+        
+        
+        {% if perms.prest.view_prestaciones %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+          </svg> Indicadores de <br> prestaciones de salud</a>
+            <ul class="nav-group-items">
+              <li class="nav-item"><a class="nav-link" href="{% url 'prestaciones' %}"><span class="nav-icon"></span> Prestaciones de EsSalud</a></li>
+              {% if perms.prest_prueba.ver_prestaciones_prueba %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_its' %}"><span class="nav-icon"></span> Pacientes con ITS - <br>  VIH/SIDA en EsSalud</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_hipertension' %}"><span class="nav-icon"></span> Pacientes con <br> Hipertensión en EsSalud</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_diabetes' %}"><span class="nav-icon"></span> Pacientes con <br> Diabetes Mellitus en <br> EsSalud</a></li>
+              {% endif %}
+            </ul>
+        </li>
+        {% endif %}
+        {% if perms.panel.view_user %}
+        <li class="nav-item"><a class="nav-link" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-virus" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v1.402c0 .511.677.693.933.25l.7-1.214a1 1 0 0 1 1.733 1l-.701 1.214c-.256.443.24.939.683.683l1.214-.701a1 1 0 0 1 1 1.732l-1.214.701c-.443.256-.262.933.25.933H15a1 1 0 1 1 0 2h-1.402c-.512 0-.693.677-.25.933l1.214.701a1 1 0 1 1-1 1.732l-1.214-.7c-.443-.257-.939.24-.683.682l.701 1.214a1 1 0 1 1-1.732 1l-.701-1.214c-.256-.443-.933-.262-.933.25V15a1 1 0 1 1-2 0v-1.402c0-.512-.677-.693-.933-.25l-.701 1.214a1 1 0 0 1-1.732-1l.7-1.214c.257-.443-.24-.939-.682-.683l-1.214.701a1 1 0 1 1-1-1.732l1.214-.701c.443-.256.261-.933-.25-.933H1a1 1 0 1 1 0-2h1.402c.511 0 .693-.677.25-.933l-1.214-.701a1 1 0 1 1 1-1.732l1.214.701c.443.256.939-.24.683-.683l-.701-1.214a1 1 0 0 1 1.732-1l.701 1.214c.256.443.933.261.933-.25V1a1 1 0 0 1 1-1Zm2 5a1 1 0 1 0-2 0 1 1 0 0 0 2 0ZM6 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm1 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm5-3a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"/>
+          </svg>Covid 19</a>
+        </li>
+        {% endif %}
+
+        <!-- nueva programacion -->
+        {% if perms.prog.view_programacion %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+            <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+            <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg>Programación <br> Asistencial</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'programacion' %}"><span class="nav-icon"></span> Programación General</a></li>
+            <!--  <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Tercer Turno </a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Avance Programación</a></li> --> <!-- 
+            <li class="nav-item"><a class="nav-link" href="base/collapse.html"><span class="nav-icon"></span> Collapse</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/list-group.html"><span class="nav-icon"></span> List group</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span class="nav-icon"></span> Navs &amp; Tabs</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/pagination.html"><span class="nav-icon"></span> Pagination</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/placeholders.html"><span class="nav-icon"></span> Placeholders</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/popovers.html"><span class="nav-icon"></span> Popovers</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/progress.html"><span class="nav-icon"></span> Progress</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/scrollspy.html"><span class="nav-icon"></span> Scrollspy</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/spinners.html"><span class="nav-icon"></span> Spinners</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/tables.html"><span class="nav-icon"></span> Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li> -->
+          </ul>
+        </li>
+        {% endif %}
+
+        {% if perms.panel.view_user %}
+        <li class="nav-item"><a class="nav-link" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>Equipamiento</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+            <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
+            <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
+          </svg>Infraestructura</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alexa" viewBox="0 0 16 16">
+            <path d="M7.996 0A7.998 7.998 0 0 0 0 8a8 8 0 0 0 6.93 7.93v-1.613a1.06 1.06 0 0 0-.717-1.008A5.602 5.602 0 0 1 2.4 7.865 5.579 5.579 0 0 1 8.054 2.4a5.599 5.599 0 0 1 5.535 5.81l-.002.046a6.116 6.116 0 0 1-.012.192l-.005.061a4.85 4.85 0 0 1-.033.284l-.01.068c-.685 4.516-6.564 7.054-6.596 7.068A7.998 7.998 0 0 0 15.992 8 7.998 7.998 0 0 0 7.996.001Z"/>
+          </svg> Oxígeno</a>
+        </li>        
+        {% endif %}
+        {% if perms.bienes.ver_bienes_estrategicos %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-pulse" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5Z"/>
+            <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z"/>
+          </svg> Bienes estratégicos</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'monitoreo_abastecimiento' %}"><span class="nav-icon"></span> Monitoreo de <br> Abastecimiento</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'canal_distribucion' %}"><span class="nav-icon"></span> Canal de Distribución</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'carga_consumo' %}"><span class="nav-icon"></span> Carga de Consumo</a></li>
+          </ul>
+        </li>
+        {% endif %}
+
+        {% if perms.prest_eco.ver_prest_eco %}
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-pulse" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5Z"/>
+            <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z"/>
+          </svg> Indicadores de <br> Prestaciones <br>Económicas</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'aporte_asegurados' %}"><span class="nav-icon"></span> Aporte de asegurados <br>titulares</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'certificado_incapacidad' %}"><span class="nav-icon"></span> Certificado de <br>Incapacidad Temporal <br> para el trabajo</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_cronicos' %}"><span class="nav-icon"></span> Pacientes crónicos <br>en EsSalud</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'subsidios_procesados' %}"><span class="nav-icon"></span> Subsidios procesados <br>en EsSalud </a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'poblacion_asegurada' %}"><span class="nav-icon"></span> Población asegurada <br>a EsSalud </a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'seguro_accidentes' %}"><span class="nav-icon"></span> Seguro contra <br>accidentes </a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'seguro_complementario' %}"><span class="nav-icon"></span> Seguro complementario <br>de trabajo de riesgo </a></li>
+          </ul>
+        </li>
+        {% endif %}
+        
+        <!-- <li class="nav-divider"></li>
+        <li class="nav-title">Extras</li>
+        <li class="nav-group">
+          <a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
+            </svg> Pages</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                </svg> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                </svg> Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
+                </svg> Error 404</a></li>
+            <li class="nav-item"><a class="nav-link" href="500.html" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
+                </svg> Error 500</a></li>
+          </ul>
+        </li> -->
+        <!-- <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-description"></use>
+            </svg> Docs</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
+            </svg> Try CoreUI
+            <div class="fw-semibold">PRO</div>
+          </a></li> -->
+      </ul>
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <header class="header header-sticky">
+        <div class="container-fluid">
+          <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            <svg class="icon icon-lg">
+              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-menu"></use>
+            </svg>
+          </button><a class="header-brand d-md-none" href="#">
+            <svg width="118" height="46" alt="CoreUI Logo">
+              <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg></a>
+          <ul class="header-nav d-none d-md-flex">
+            <li class="nav-item"><a class="nav-link" href="#"><b>Unidad de Gobierno y Analítica de Datos</b></a></li>
+            
+          </ul>
+          <ul class="header-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-bell"></use>
+                </svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-list-rich"></use>
+                </svg></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-envelope-open"></use>
+                </svg></a></li>
+            
+          </ul>
+          <ul class="header-nav ms-3">
+            <li class="nav-item"><a class="nav-link" href="#"><b>{{ user.username }}</b></a></li>
+            <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-md"><img class="avatar-img" src="{% static 'assets/img/avatars/user-principal.png' %}" alt="user@email.com"></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end pt-0">
+                <!-- <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">Ajustes</div>
+                </div>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                  </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                  </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-task"></use>
+                  </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
+                  </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a> -->
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">Configuración</div>
+                </div><a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-user"></use>
+                  </svg> Perfil</a><a class="dropdown-item" href="{% url 'edit_user2' user.id %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-settings"></use>
+                  </svg> Configuración</a>
+                  <hr>
+                  <!--<a class="dropdown-item" href="#">
+                   <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
+                  </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a>
+                  <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
+                  </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a> -->
+                
+                  <!-- <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                  </svg> Lock Account </a>-->
+                  <a class="dropdown-item" href="{% url 'logout' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-account-logout"></use>
+                  </svg> Salir</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="header-divider"></div> -->
+        <!-- <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+              <li class="breadcrumb-item">
+               <span>Home</span>
+              </li>
+              <li class="breadcrumb-item active"><span>Dashboard</span></li>
+            </ol>
+          </nav>
+        </div> -->
+      </header>
+      <div class="body flex-grow-1 px-3" >
+        <!-- <script type="text/javascript"> 
+          document.onkeydown = function(){return false};
+        </script>   -->
+        <div class="" oncontextmenu='return false'>
+          
+           
+         
+              {% block content%}
+              {% endblock %}
+  
+  
+              
+        
+
+          
+          
+
+          <!-- scripts tabla nueva -->
+          
+  <!-- Bootstrap tether Core JavaScript -->
+ 
+  <!-- apps -->
+ 
+  <!-- slimscrollbar scrollbar JavaScript -->
+  
+  
+  <!--Wave Effects -->
+  
+  <!--Menu sidebar -->
+  
+  <!--Custom JavaScript -->
+  
+  
+  <!--This page JavaScript -->
+  
+  
+        </div>
+      </div>
+      <script language="Javascript">
+          document.oncontextmenu = function() {
+            return false
+          }
+          function right(e) {
+            var msg = "Prohibido usar Click Derecho !!! ";
+            if (navigator.appName == 'Netscape' && e.which == 3) {
+                //- Si no quieres asustar a tu usuario entonces quita esta linea...
+                return false;
+            }
+            else if (navigator.appName == 'Microsoft Internet Explorer' && event.button==2) {
+                //- Si no quieres asustar al usuario que utiliza IE,  entonces quita esta linea...
+                              //- Aunque realmente se lo merezca...
+            return false;
+            }
+          return true;
+      }
+      document.onmousedown = right;
+      </script>
+      <footer class="footer">
+        <!-- <a href="https://coreui.io">C3IO </a> -->
+        <div>UGAD © 2022 - 2023</div>
+        <div class="ms-auto">Gerencia General - EsSalud</div>
+      </footer>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="{% static 'vendors/@coreui/coreui/js/coreui.bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/simplebar/js/simplebar.min.js' %}"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="{% static 'vendors/chart.js/js/chart.min.js' %}"></script>
+    <script src="{% static 'vendors/@coreui/chartjs/js/coreui-chartjs.js' %}"></script>
+    <script src="{% static 'vendors/@coreui/utils/js/coreui-utils.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'assets/extra-libs/prism/prism.js' %}"></script>
+    <script src="{% static 'assets2/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'assets2/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'assets2/extra-libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'dist2/js/pages/datatable/datatable-api.init.js' %}"></script>
+    {% block script_body %}
+    {% endblock %}
+
+  </body>
+</html>

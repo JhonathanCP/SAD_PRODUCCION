@@ -1,0 +1,718 @@
+{% extends 'index_second.html' %}
+
+{% block title %}
+    Solicitudes
+{% endblock %}
+
+{% block links %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block css %} 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+{% endblock%}
+
+{% block script %}
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="table-responsive" >
+    <div class="container-fluid" style="padding: 35px 35px 35px 35px;">
+  
+        
+
+        <!-- nueva tabla -->
+        <div class="card">
+          <div class="border-bottom title-part-padding">
+            <h4 class="card-title mb-0">Solicitudes</h4>
+          </div>
+          <div class="card-body">
+            
+            <div class="table-responsive">
+              <table
+                id="t_add_row"
+                class="
+                  table table-striped table-bordered
+                  display
+                  text-nowrap
+                "
+                style="width: 100%"
+              >
+                <thead>
+                  <!-- start row -->
+                  <tr>
+                    <th data-bs-toggle="true">ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Anexo</th>
+                    <th hidden>Red</th>
+                    <th data-hide="phone">Fecha</th>
+                    <th data-hide="phone">Area</th>
+                    <th data-hide="all">Acción</th>
+                    <th data-hide="all" hidden></th>
+                    <th data-hide="all">Status</th>
+                    <th data-hide="all" hidden>Area1</th>
+                    <th data-hide="all" hidden>Prueba</th>
+                    
+                  </tr>
+                  <!-- end row -->
+                </thead>
+                <tbody>
+                  <!-- start row -->
+                  {% for solicitud in solicitud %}
+                  <!-- <button type="button" id="buton{{solicitud.id}}" onclick="obtenerEmail({{solicitud.id}})" class="formulario_usuario{{solicitud.id}} btn btn-success text-white" value="{{solicitud.correo}}"> Crear </button> -->
+                          <tr>
+                            <th id="id{{solicitud.id}}" scope="row">{{ solicitud.id }}</th>
+                            <td id="name{{solicitud.id}}" >{{ solicitud.nombres }}</td>
+                            <td id="apellidos{{solicitud.id}}" >{{ solicitud.apellidos }}</td>
+                            <td id="correo{{solicitud.id}}">{{ solicitud.correo }}</td>
+                            <td id="dni{{solicitud.id}}">{{ solicitud.dni }}</td>
+                            <td id="telefono_contacto{{solicitud.id}}">{{ solicitud.telefono_contacto }}</td>
+                            <td id="anexo{{solicitud.id}}">{{ solicitud.anexo }}</td>
+                            <td id="red{{solicitud.id}}" hidden>{{ solicitud.red.strip }}</td>
+                            <td>{{ solicitud.fecha_creacion }}</td>
+                            <td id="red{{solicitud.id}}" >{{ solicitud.area }}</td>
+                            {% if solicitud.estado_soli == '1' %}
+                            <td align="center"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="log({{solicitud.id}})">Crear</button> &nbsp; <button type="button" id="anular{{solicitud.id}}" onclick="anular({{solicitud.id}})" class="btn btn-danger text-white" value=""> Anular </button></td>
+                            {% elif solicitud.estado_soli == '2' %}
+                            <td> </td>
+                            {% else %}
+                            <td>   </td>
+                            {% endif %}
+                            {% if solicitud.estado_soli == '1' and solicitud.cod_arch == 's' %}
+                              <td align="center" hidden><button id="archivar{{solicitud.id}}" onclick="store({{solicitud.id}})" type="button" class="formulario_usuario{{solicitud.id}} btn btn-danger text-white" value="{{solicitud.correo}}"> Archivar </button> <button onclick="des_store({{solicitud.id}})" style="display: none;" id="desarchivar{{solicitud.id}}" onclick="store({{solicitud.id}})" type="button" class="formulario_usuario{{solicitud.id}} btn btn-danger text-white" value="{{solicitud.correo}}"> Desarchivar </button></td>
+                            {% elif solicitud.estado_soli == '2' and solicitud.cod_arch == 'n' %}
+                              <td hidden></td>
+                            {% else %}
+                              <td hidden></td>
+                            {% endif %}
+                            {% if solicitud.estado_soli == '1'%}
+                              <td align="center" id="estado_soli{{solicitud.id}}"><span id="pendiente{{solicitud.id}}" class="badge text-bg-warning text-white">Pendiente</span> </td>
+                            {% elif solicitud.estado_soli == '2' %}
+                              <td align="center"><span class="badge text-bg-success text-white">Creado</span> </td>
+                            {% elif solicitud.estado_soli == '3' %}
+                              <td align="center"><span class="badge text-bg-danger text-white">Anulado</span></td>
+                            {% else  %}
+                              <td></td>
+                            {% endif %}
+                            <td hidden>{{ solicitud.area1 }}</td>
+                            
+                            <td hidden> {{ solicitud.cod_arch }} </td>
+                          </tr>         
+                          {% endfor %}
+                  
+                  <!-- end row -->
+                </tbody>
+                <tfoot>
+                  <!-- start row -->
+                  <tr>
+                    <th data-bs-toggle="true">ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Anexo</th>
+                    <th hidden>Red</th>
+                    <th data-hide="phone">Fecha</th>
+                    <th data-hide="phone">Area</th>
+                    <th data-hide="all">Acción</th>
+                    <th data-hide="all" hidden></th>
+                    <th data-hide="all">Status</th>
+                    <th data-hide="all" hidden>Area1</th>
+                    <th data-hide="all" hidden>Prueba</th>
+                  </tr>
+                  <!-- end row -->
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div> 
+
+
+        <!-- fin nueva tabla -->
+        
+        
+        <!-- TABLA NUEVA PARA LAS SOLICITUDES -->
+        <div class="row" id="formulario" style="display:none; padding: 35px 35px 35px 35px;"> 
+            <form action="{% url 'registra_new_user' %}" method="POST" class="card card-body">
+                <h3 class="text-center">Registro de Usuario </h3>
+                    {{error}}        
+                    {% csrf_token %}
+                <div class="form-row">
+                  <div class="col-md-2 mb-3">
+                    <label for="validationDefault01">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="dni" readonly>
+                    <input type="hidden" name="id_red" id="id_red" readonly>
+                    <input type="hidden" name="cod_id" id="cod_id" readonly>
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label for="validationDefault01">Usuario</label>
+                    <div class="input-group mb-6">
+                      <div class="input-group-prepend" id="dropdown-sedes">
+                        <select style="background-color: #e9ecef;" name="pref" class="form-select  " aria-label=".form-select-lg example">
+                          <option selected="" name="pref" disabled>Prefijo</option>
+                              {% for pref_user in pref_user %}
+                                <option value="{{pref_user.value}}">{{pref_user.label}}</option>
+                              {% endfor %}
+                        </select>
+                      </div>
+                      <div class="input-group-prepend" id="dropdown-central">
+                        <select style="background-color: #e9ecef;" id="sede_central" name="pref2" class="form-select  " aria-label=".form-select-lg example">
+                          <option selected="" name="pref2" disabled>Prefijo</option>
+                              {% for pref_sede2 in pref_sede2 %}
+                                <option value="{{pref_sede2.value}}">{{pref_sede2.label}}</option>
+                              {% endfor %}
+                        </select>
+                      </div>
+                      <!-- <input type="text" class="form-control" name="username" id="username1" aria-label="Text input with dropdown button" readonly> -->
+                      <input type="text" class="form-control" name="username" id="username" aria-label="Text input with dropdown button">
+
+                    </div>
+                  </div>
+                  <div class="col-md-2 mb-3">
+                    <label for="validationDefault02">Contraseña</label>
+                    <input type="password" class="form-control" name="password1" id="password1" placeholder="Contraseña" required>
+                  </div>
+                  
+                </div>
+                <div class="form-row">
+                 
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault04">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault05">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault05">DNI</label>
+                    <input type="text" class="form-control" name="doc_ide" id="doc_ide" readonly>
+                  </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="validationDefault05">Teléfono</label>
+                      <input type="text" class="form-control" name="tel_cont" id="tel_cont" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="validationDefault05">Sede</label>
+                      <input type="text" class="form-control" name="name_sede" id="name_sede" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="validationDefault05">Anexo</label>
+                      <input type="text" class="form-control" name="anexo_sede" id="anexo_sede" readonly>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+
+                    <button class="btn btn-primary " type="submit"> Guardar </button>
+                    <!-- <button class="btn btn-primary col-6 " type="submit">Submit form</button> -->
+                    <input type="button" id="cancelar" class="btn btn-danger" value="Cancelar">
+
+                </div>
+              </form>
+        </div>      
+
+        <!-- Modal para crear-->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Registro de Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form action="{% url 'registra_new_user' %}" method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                  <div class="form-row">
+                    <div class="col-md-8 mb-3">
+                      <label for="validationDefault01"><b>Usuario</b></label>
+                      <div class="input-group mb-6">
+                        <div class="input-group-prepend" id="dropdown_sedes_modal">
+                          <select style="background-color: #e9ecef;" name="pref" class="form-select" aria-label=".form-select-lg example">
+                            <option selected="" name="pref" disabled>Prefijo</option>
+                            {% for pref_user in pref_user %}
+                              <option value="{{pref_user.value}}">{{pref_user.label}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="input-group-prepend" id="dropdown_central_modal">
+                          <select style="background-color: #e9ecef;" id="sede_central_modal" name="pref2" class="form-select  " aria-label=".form-select-lg example">
+                            <option selected="" name="pref2" disabled>Prefijo</option>
+                            {% for pref_sede2 in pref_sede2 %}
+                              <option value="{{pref_sede2.value}}">{{pref_sede2.label}}</option>
+                            {% endfor %}
+                                
+                          </select>
+                        </div>
+                        <!-- <input type="text" class="form-control" name="username" id="username1" aria-label="Text input with dropdown button" readonly> -->
+                        <input type="text" class="form-control" name="username_modal" id="username_modal" aria-label="Text input with dropdown button">
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="validationDefault02"><b>Contraseña</b></label>
+                      <input type="password" class="form-control" name="password1_modal" id="password1_modal" placeholder="Contraseña" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label for="validationDefault01"><b>Correo</b></label>
+                      <input type="text" class="form-control" name="correo_modal" id="correo_modal" readonly>
+                      <input type="hidden" name="id_modal" id="id_modal" readonly>
+                      <input type="hidden" name="cod_red_modal" id="cod_red_modal" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="validationDefault04"><b>Nombre</b></label>
+                      <input type="text" class="form-control" name="nombre_modal" id="nombre_modal" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="validationDefault05"><b>Apellido</b></label>
+                      <input type="text" class="form-control" name="apellido_modal" id="apellido_modal" readonly>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-2 mb-3">
+                      <label for="validationDefault05"><b>DNI</b></label>
+                      <input type="text" class="form-control" name="doc_ide_modal" id="doc_ide_modal" readonly>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <label for="validationDefault05"><b>Teléfono</b></label>
+                      <input type="text" class="form-control" name="tel_cont_modal" id="tel_cont_modal" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="validationDefault05"><b>Sede</b></label>
+                      <input type="text" class="form-control" name="name_sede_modal" id="name_sede_modal" readonly>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <label for="validationDefault05"><b>Anexo</b></label>
+                      <input type="text" class="form-control" name="anexo_sede_modal" id="anexo_sede_modal" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Modal para crear-->
+
+
+        <script>
+          let modal_crear = document.querySelector('#exampleModalCenter')
+          
+          function log(id){
+            modal_crear.setAttribute('data-backdrop','static')
+
+            var id = document.getElementById('id'+id).innerHTML
+            var correo = document.getElementById('correo'+id).innerHTML
+            var cod_sede = document.getElementById('red'+id).innerHTML
+            var nombre = document.getElementById('name'+id).innerHTML
+            var apel = document.getElementById('apellidos'+id).innerHTML
+            var doc_ide = document.getElementById('dni'+id).innerHTML
+            var tel = document.getElementById('telefono_contacto'+id).innerHTML
+            let anexo = document.getElementById('anexo'+id).innerHTML
+            console.log(`${correo} ${nombre} ${apel} ${doc_ide} ${tel} ${anexo}`)
+
+            //inputs para setear
+            let id_set = document.querySelector('#id_modal')
+            let correo_set = document.querySelector('#correo_modal')
+            let cod_red_set = document.querySelector('#cod_red_modal')
+            let nombre_set = document.querySelector('#nombre_modal')
+            let apellido_set = document.querySelector('#apellido_modal')
+            let dni_set = document.querySelector('#doc_ide_modal')
+            let tel_set = document.querySelector('#tel_cont_modal')
+            let anexo_set = document.querySelector('#anexo_sede_modal')
+            let sede_set = document.querySelector('#name_sede_modal')
+            let dropdown_sede_modal = document.querySelector('#dropdown_sedes_modal')//2
+            let dropdown_central_modal = document.querySelector('#dropdown_central_modal')//3
+            let username_modal = document.querySelector('#username_modal')//3
+
+            //condicional para el seteo de nombre de sede en el campo SEDE
+            if( cod_sede.trim() === '31' ){
+              let sigla_sede = document.querySelector('#sede_central_modal') //1
+              sede_set.value = 'SEDE CENTRAL'
+              dropdown_sede_modal.style.display = 'none'; //2
+              dropdown_central_modal.style.display = ''; //3
+              //funcion al combo box de sede_central
+              sigla_sede.addEventListener('change', function() {
+                const seleccionado = sigla_sede.value;
+                const pattern = seleccionado.trim().toLowerCase();
+                console.log('presionaste')
+                console.log(`${seleccionado} ${pattern}`)
+                // console.log(seleccionado)
+                const data = { pattern: pattern };
+                fetch('/count_users_by_pattern/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                  body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                  username_modal.value = seleccionado.trim().concat((data.count+1).toString().padStart(3, '0'))
+                  // sede_name.value = 'SEDE CENTRAL'
+                  //sede_set.value = data.count.trim()
+                  console.log("gg")
+                  console.log(data)
+                })
+                .catch(error => console.error(error));
+                 
+
+                function getCookie(name) {
+                  var cookieValue = null;
+                  if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                      var cookie = cookies[i].trim();
+                      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                      }
+                    }
+                  }
+                  return cookieValue;
+                }
+              });
+              
+            } else {
+              dropdown_sede_modal.style.display = 'none';
+              dropdown_central_modal.style.display = 'none';
+
+              // funcion para setear por red
+              const data = { pattern: cod_sede };
+                fetch('/count_users_by_pattern2/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                  body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                  username_modal.value = data.count.concat((data.count2+1).toString().padStart(4, '0'))
+                  sede_set.value = data.count6.trim()
+                })                    
+                .catch(error => console.error(error));
+                
+                function getCookie(name) {
+                  var cookieValue = null;
+                  if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                      var cookie = cookies[i].trim();
+                      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                      }
+                    }
+                  }
+                  return cookieValue;
+                }
+            }
+
+            //seteo de campos
+            id_set.value = id
+            cod_red_set.value = cod_sede 
+            correo_set.value = correo
+            nombre_set.value = nombre
+            apellido_set.value = apel
+            dni_set.value = doc_ide
+            tel_set.value = tel
+            anexo_set.value = anexo
+          }     
+          
+          window.onclick = function(event) {
+            if (event.target == modal_crear) {
+              console.log('entré crear')
+              event.stopPropagation(); // Detener la propagación del evento
+            }
+          }
+          
+            let bi = document.getElementById('cancelar')
+            bi.addEventListener("click", function(){              
+                var link = document.querySelector('#t_add_row_next')
+                var form = document.querySelector('#formulario')
+                var b = document.querySelectorAll("td button")
+                // console.log('presionaste en cancelar')
+                form.style.display = 'none'
+                b.forEach(boton => {
+                     boton.disabled = false;
+                });
+                // ocultar el dropdown que no corresponda
+                link.classList.remove('disabled')
+            })
+            //var value = btn.value             
+            //var cod = this.b.value
+            var input = document.querySelector('#dni')
+
+          function obtenerEmail(id){
+                var link = document.querySelector('#t_add_row_next')
+                var form = document.querySelector('#formulario')
+                var b = document.querySelectorAll("td button") //almacena todos los botones
+                var btn = document.querySelector('td button.formulario_usuario'+id).value
+                var nombre = document.getElementById('name'+id).innerHTML
+                var n1 = nombre.charAt(0)
+                var apel = document.getElementById('apellidos'+id).innerHTML
+                var apel1 = apel.charAt(0)
+                var cod = n1.concat(apel1)
+                var doc_ide = document.getElementById('dni'+id).innerHTML
+                var tel = document.getElementById('telefono_contacto'+id).innerHTML
+                let sede = document.getElementById('dropdown-sedes')
+                let central = document.getElementById('dropdown-central')
+                let nom_sede = document.getElementById('red'+id).innerHTML
+                let anexo = document.getElementById('anexo'+id).innerHTML
+                let cod_id = document.getElementById('id'+id).innerHTML
+                
+                //atributos de la tabla para el registro de users
+                var dni = document.querySelector('#dni')
+                var name = document.querySelector('#nombre')
+                var apellido = document.querySelector('#apellido')
+                var username = document.querySelector('#username')
+                var ide = document.querySelector('#doc_ide')
+                var tel_cont = document.querySelector('#tel_cont')
+                var sede_name = document.querySelector('#name_sede')
+                var anexo1 = document.querySelector('#anexo_sede')
+                var id_red1 = document.querySelector('#id_red')
+                var cod_id2 = document.querySelector('#cod_id')
+                
+                link.className += ' disabled'
+                form.style.display = ''
+                b.forEach(boton => {
+                     boton.setAttribute('disabled', true);
+                });
+
+                if (!central) {
+                  console.error('Could not find dropdown element');
+                }
+
+                if( nom_sede.trim() === '31' ){
+                  let sigla_sede = document.querySelector('#sede_central')
+                  sede_name.value = 'SEDE CENTRAL'
+                  sede.style.display = 'none';
+                  central.style.display = '';
+                  //funcion al combo box de sede_central
+                  sigla_sede.addEventListener('change', function() {
+                    const seleccionado = sigla_sede.value;
+                    const pattern = seleccionado.trim().toLowerCase();
+                    console.log('presionaste')
+                    console.log(`${seleccionado} ${pattern}`)
+                    // console.log(seleccionado)
+                    const data = { pattern: pattern };
+                    fetch('/count_users_by_pattern/', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                      body: JSON.stringify(data)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      username.value = seleccionado.trim().concat((data.count+1).toString().padStart(3, '0'))
+                      // sede_name.value = 'SEDE CENTRAL'
+                      //sede_name.value = data.count6.trim()
+                    })
+                    .catch(error => console.error(error));
+                     
+
+                    function getCookie(name) {
+                      var cookieValue = null;
+                      if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                          var cookie = cookies[i].trim();
+                          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                          }
+                        }
+                      }
+                      return cookieValue;
+                    }
+                  });
+                  
+                } else {
+                  sede.style.display = 'none';
+                  central.style.display = 'none';
+
+                  // funcion para setear por red
+                  const data = { pattern: nom_sede };
+                    fetch('/count_users_by_pattern2/', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                      body: JSON.stringify(data)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      username.value = data.count.concat((data.count2+1).toString().padStart(4, '0'))
+                      sede_name.value = data.count6.trim()
+                    })                    
+                    .catch(error => console.error(error));
+                    
+                    function getCookie(name) {
+                      var cookieValue = null;
+                      if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                          var cookie = cookies[i].trim();
+                          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                          }
+                        }
+                      }
+                      return cookieValue;
+                    }
+                }
+                dni.value = btn
+                name.value = nombre
+                apellido.value = apel 
+                //username.value = cod //coloca el nombre en el input
+                ide.value = doc_ide 
+                tel_cont.value = tel
+                anexo1.value = anexo
+                id_red1.value = nom_sede
+                cod_id2.value = cod_id
+                //sede_name.value = nom_sede 
+          }
+
+          //funcion para ocultar el boton CREAR
+          function anular(id){
+
+            Swal.fire({
+              title: '¿Está seguro de anularlo?',
+              text: "¡Esta acción no podrá revertirse!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonText: 'Cancelar',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '¡Sí, anularlo!',
+              allowOutsideClick: false
+            }).then((result) => {
+              if (result.isConfirmed) {
+                let btn_crear = document.querySelector('td button#buton'+id)
+                let btn_anular = document.querySelector('td button#anular'+id)
+                let span_pendi = document.querySelector('td span#pendiente'+id)
+                let est_soli = document.querySelector('td#estado_soli'+id)
+                // let span_dele = document.querySelector('td span#anular'+id)
+                // var btn_des = document.querySelector('td button#desarchivar'+id)
+                // var btn_crear = document.querySelector('td button#buton'+id)
+                btn_crear.style.display = 'none'
+                btn_anular.style.display = 'none'
+                span_pendi.style.display = 'none'
+                // span_dele.style.display = ''
+
+                const data = { 'id': id, 'estado_soli': '3'}
+                fetch('/update_estado/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                  body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                  if(data.rpta){
+                    console.log(data.rpta)
+                    console.log("SVSC")
+                    est_soli.innerHTML = '<span class="badge text-bg-danger text-white">Anulado</span>'
+                  }
+                })                    
+                .catch(error => console.error(error));
+                function getCookie(name) {
+                  var cookieValue = null;
+                  if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                      var cookie = cookies[i].trim();
+                      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                      }
+                    }
+                  }
+                  return cookieValue;
+                }
+                Swal.fire({
+                  title: '¡Anulado!',
+                  text: 'El usuario ha sido anulado.',
+                  icon: 'success',
+                  confirmButtonText: '¡Ok!',
+                  allowOutsideClick: false
+                }).then((result) => {
+                  window.location.reload();
+                })
+              }
+            })
+            // let btn_crear = document.querySelector('td button#buton'+id)
+            // let btn_anular = document.querySelector('td button#anular'+id)
+            // let span_pendi = document.querySelector('td span#pendiente'+id)
+            // let span_dele = document.querySelector('td span#anular'+id)
+            // // var btn_des = document.querySelector('td button#desarchivar'+id)
+            // // var btn_crear = document.querySelector('td button#buton'+id)
+            // btn_crear.style.display = 'none'
+            // btn_anular.style.display = 'none'
+            // span_pendi.style.display = 'none'
+            // span_dele.style.display = ''
+
+            // const data = { 'id': id, 'estado_soli': '3'}
+            // fetch('/update_estado/', {
+            //   method: 'POST',
+            //   headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+            //   body: JSON.stringify(data)
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log(data.rpta))                    
+            // .catch(error => console.error(error));
+            // function getCookie(name) {
+            //   var cookieValue = null;
+            //   if (document.cookie && document.cookie !== '') {
+            //     var cookies = document.cookie.split(';');
+            //     for (var i = 0; i < cookies.length; i++) {
+            //       var cookie = cookies[i].trim();
+            //       if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            //         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            //         break;
+            //       }
+            //     }
+            //   }
+            //   return cookieValue;
+            // }
+          }
+
+          function des_store(id){
+            let btn_store = document.querySelector('td span#archivar'+id)
+            var btn_arch = document.querySelector('td button#archivar'+id)
+            var btn_des = document.querySelector('td button#desarchivar'+id)
+            var btn_crear = document.querySelector('td button#buton'+id)
+            btn_store.style.display = 'none'
+            btn_arch.style.display = ''
+            btn_des.style.display = 'none'
+            btn_crear.style.display = ''
+          }
+          
+          const button = document.querySelector('td button#demoButton');
+          button.addEventListener('click', function() {
+            obtenerEmail('{{solicitud.id}}');
+          });
+
+        </script>
+        
+   </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block scriptf %}
+  
+{% endblock %}

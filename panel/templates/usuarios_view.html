@@ -1,0 +1,167 @@
+
+
+{% extends 'index_second.html' %}
+
+{% block title %}
+  Usuarios
+{% endblock %}
+
+{% block content %}
+
+<div class="table-responsive" >
+  
+  <div class="container-fluid" style="padding: 35px 35px 35px 35px;">
+    {% if perms.panel.add_user %}
+    <a href="{% url 'crear_usuario' %}" class=" btn btn-success mb-3 text-white" id="btnguardar">  Nuevo Usuario </a>
+    {% endif %}
+   <div class="card">
+      <div class="border-bottom title-part-padding">
+        <h4 class="card-title mb-0">Usuarios</h4>
+      </div>
+      <div class="card-body">
+        
+        <div class="table-responsive">
+          <table
+            id="t_add_row"
+            class="
+              table table-striped table-bordered
+              display
+              text-nowrap
+            "
+            style="width: 100%"
+          >
+            <thead>
+              <!-- start row -->
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                
+                <th>Acción</th>
+                
+              </tr>
+              <!-- end row -->
+            </thead>
+            <tbody>
+              <!-- start row -->
+              {% for user in users %}
+                  <tr>
+    
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    
+                    {% if perms.panel.change_user or perms.panel.delete_user %}
+                    <td class="d-flex flex-row">
+                      {% if perms.panel.change_user %}
+                      <form action="{% url 'edit_user' user.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="
+                        btn btn-primary
+                      ">Editar</button> 
+                      </form>
+                      {% endif %}
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      {% if perms.panel.delete_user %}
+                        <button class="btn btn-round btn-danger text-white" onclick="eliminar({{user.id}})">Eliminar</button>
+                      {% endif %}
+                    </td>
+                    {% endif %}
+    
+                  </tr>
+                  {% endfor %}
+              
+              <!-- end row -->
+            </tbody>
+            <tfoot>
+              <!-- start row -->
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                
+                <th>Acción</th>
+                
+              </tr>
+              <!-- end row -->
+            </tfoot>
+          </table>
+
+          <script>
+            function eliminar(id){
+              Swal.fire({
+                title: '¿Está seguro de eliminar?',
+                text: "¡Esta acción no podrá revertirse!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, eliminar!',
+                allowOutsideClick: false
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  console.log('presiono confirma')
+                  const data = { 'id_user': id }
+                  fetch('/usuarios/delete/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify(data)
+                  })
+                  .then(response => response.json())
+                  .then(data => 
+                  {
+                    if(data.rpta){
+                      Swal.fire({
+                        title: '¡Eliminado!',
+                        text: 'El usuario ha sido eliminado.',
+                        icon: 'success',
+                        confirmButtonText: '¡Ok!',
+                        allowOutsideClick: false
+                      }).then((result) => {
+                        window.location.reload();
+                      })
+                      
+                    }
+                  })                    
+                  .catch(error => console.error(error));
+                  function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                      var cookies = document.cookie.split(';');
+                      for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                          break;
+                        }
+                      }
+                    }
+                    return cookieValue;
+                  }
+
+                  
+                }
+              })
+            }
+          </script>
+        </div>
+      </div>
+    </div> 
+
+ 
+
+   </div>
+</div>  
+  
+<!-- TABLA NUEVA PARA LAS SOLICITUDES -->
+
+<!-- TABLA NUEVA PARA LAS SOLICITUDES -->
+
+
+  {% endblock %}
+
+  

@@ -1,0 +1,25 @@
+{% extends 'index_second.html' %}
+
+{% block title %}
+Dengue
+{% endblock %}
+
+{% block script %}
+<script>
+  let flag = 1
+  let template = 'dengue'
+</script>
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript"> 
+  document.onkeydown = function(){return false};
+</script>  
+
+<iframe id="frame" width="100%" style="margin: 0 !important; height: 100vh;"></iframe>
+
+<!-- https://app.powerbi.com/view?r=eyJrIjoiODM1MGNjMDMtNDM5NS00MjI0LTljMTAtZGY2MjU2NDUyMTFiIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9 -->
+   
+
+{% endblock %}

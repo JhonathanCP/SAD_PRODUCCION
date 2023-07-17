@@ -1,0 +1,79 @@
+{% extends 'index_second.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Crear usuario</h1>
+        <!-- primer formulario -->
+            <!-- <form action="{% url 'create_usuarios' %}" method="POST" class="card card-body mb-3">
+                {% csrf_token %}
+                <label for="">Nombre de usuario</label>
+                <input type="text" name="nombreusuario" 
+                placeholder="username" class="form-control mb-2" required>
+                <input type="text" name="nombres" 
+                placeholder="John..." class="form-control mb-2" required>
+                <input type="text" name="apellidos" 
+                placeholder="Doe..." class="form-control mb-2" required>
+                <input type="email" name="correo" 
+                placeholder="example@dominio.com" class="form-control mb-2" required>
+                <input type="password" name="password" 
+                placeholder="" class="form-control mb-2" required> -->
+             <!-- fin primer formulario -->
+
+             <!-- segundo formulario -->
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Registration Form <small>Click to validate</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <!-- start form for validation -->
+                        <form action="{% url 'create_usuarios' %}" method="POST" id="demo-form" data-parsley-validate>
+                        
+                            {% csrf_token %}
+                            
+                            <label for="fullname">Nombre de usuario * :</label>
+                            <input type="text" id="fullname" class="form-control" name="username" required />
+                            <label for="fullname">Nombres * :</label>
+                            <input type="text" id="fullname" class="form-control" name="nombres" required />
+                            <label for="fullname">Apellidos * :</label>
+                            <input type="text" id="fullname" class="form-control" name="apellidos" required />
+
+                            <label for="email">Email * :</label>
+                            <input type="email" id="email" class="form-control" name="correo" data-parsley-trigger="change" required />
+                            <label for="password">Password * :</label>
+                            <input type="password" name="password" 
+                            placeholder="" class="form-control mb-3" required>
+
+                            <button class="btn btn-success">Guardar</button>
+
+
+                        </form>
+                        <!-- end form for validations -->
+
+                    </div>
+                </div>
+
+                <!-- fin segundo formulario -->
+
+            </form>
+
+        </div>
+        <!-- /page content -->
+{% endblock %}

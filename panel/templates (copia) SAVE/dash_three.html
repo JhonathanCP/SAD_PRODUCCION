@@ -1,0 +1,30 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+{% load plotly_dash %}
+<!-- page content -->
+<div class="right_col" role="main">
+    
+    <div class="{% plotly_class name='grafico3' %} card col-xl-12 col-md-12 col-lg-12"
+        style="max-height:700px; width:100%">
+        {% plotly_app name='grafico3' ratio=0.9 %}
+
+    </div>
+    <!-- <div class="{% plotly_class name='practica' %} card col-xl-12 col-md-12 col-lg-12"
+        style="max-height:700px; width:100%">
+        {% plotly_app name='practica' ratio=0.9 %}
+
+    </div> -->
+    <div class="{% plotly_class name='ventas' %} card col-xl-12 col-md-12 col-lg-12"
+        style="max-height:700px; width:100%">
+        {% plotly_app name='ventas' ratio=0.9 %}
+
+    </div>
+    
+    <div class="{% plotly_class name='reportesalud' %} card col-xl-12 col-md-12 col-lg-12"
+    style="max-height:500px; width:100%">
+    {% plotly_app name='reportesalud' ratio=0.5 %}
+    </div>
+
+
+    {% endblock %}

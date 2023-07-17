@@ -1,0 +1,26 @@
+{% extends 'index_second.html' %}
+
+{% block content %}
+    {% load plotly_dash %}
+    <!-- page content -->
+
+    <div class="table-responsive" >
+      <div class="container-fluid" style="padding: 15px 35px 35px 35px;">
+
+
+        <div class="right_col" role="main">
+          <h3>Dash Interactive</h3>
+
+            <div class="{% plotly_class name='grafico' %} card col-xl-12 col-md-12 col-lg-12" style="max-height:1000px; width:100%">
+            {% plotly_app name='grafico' ratio=0.47 %}            
+            
+          </div>
+          
+      </div>
+    </div>      
+          
+       
+            
+        
+{% endblock %}
+
