@@ -31,7 +31,7 @@ import json
 # Create your views here.
 # last modificacion 19 - 06 - 2023
 # conexion bd
-conn=psycopg2.connect(host="10.0.27.60", database="dw_essalud", user="ugading001ac", password="U64d#Y22gg")
+conn=psycopg2.connect(host="10.0.27.60", database="dw_essalud", user="ugading001ac", password="casita123")
 cur=conn.cursor()
 cur.execute("SELECT des_men1, pref_user, id_red, cod_red FROM dim_red WHERE id_red <> 32 ORDER BY des_men1  ")
 results= cur.fetchall()
@@ -827,5 +827,25 @@ def indicadores_fonafe(request):
     nuevo_registro = Registro( ip = ip, usuario = username, url = url)
     nuevo_registro.save()
     return render(request,'fonafe/indicadores_fonafe.html')
+    
+@login_required(login_url = 'login')
+def subsidios_otorgados(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('subsidios_otorgados')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'prestaciones_economicas/subsidios_otorgados.html')
 
-
+@login_required(login_url = 'login')
+def analisis_financiero(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('analisis_financiero')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'prestaciones_economicas/analisis_financiero.html')

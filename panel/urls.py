@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 
-from .views import index, UserListView,CreateUserView, VistaCreateUserView, DeleteUserView, EditUserView,EditUserView2, UpdateUserView,dash,register,login,signout,dashinteractive,dashreporte,authentication_login,dashtwo,dashthree,dashfour, UpdateUserView2, lock_account,unlock_account,userView, roles, prestaciones, servicio_emergencia,index_new, datos_registro, solicitud, view_solicitud, solicitudView, registra_new_user, emergencia_second, tables, programacion, alta_direccion, count_users_by_pattern, count_users_by_pattern2,update_estado_soli,monitoreo_abastecimiento,canal_distribucion,carga_consumo,aporte_asegurados,certificado_incapacidad,pacientes_cronicos,poblacion_asegurada,seguro_accidentes,seguro_complementario,subsidios_procesados,pacientes_diabetes,pacientes_hipertension,pacientes_its,filtro_status, url_bi, dengue, indicadores_salud_renal, indicadores_fonafe
+from .views import index, UserListView,CreateUserView, VistaCreateUserView, DeleteUserView, EditUserView,EditUserView2, UpdateUserView,dash,register,login,signout,dashinteractive,dashreporte,authentication_login,dashtwo,dashthree,dashfour, UpdateUserView2, lock_account,unlock_account,userView, roles, prestaciones, servicio_emergencia,index_new, datos_registro, solicitud, view_solicitud, solicitudView, registra_new_user, emergencia_second, tables, programacion, alta_direccion, count_users_by_pattern, count_users_by_pattern2,update_estado_soli,monitoreo_abastecimiento,canal_distribucion,carga_consumo,aporte_asegurados,certificado_incapacidad,pacientes_cronicos,poblacion_asegurada,seguro_accidentes,seguro_complementario,subsidios_procesados,pacientes_diabetes,pacientes_hipertension,pacientes_its,filtro_status, url_bi, dengue, indicadores_salud_renal, indicadores_fonafe, subsidios_otorgados,analisis_financiero
 
 from panel.dash_apps.finished_apps import simpleexample,pruebacadena,barraprueba,grafico,reporte,grafico2,pruebacallback,reportesalud,ventas,practica
 
@@ -70,6 +70,8 @@ urlpatterns=[
     path('seguro_accidentes/',seguro_accidentes,name="seguro_accidentes"),
     path('seguro_complementario/',seguro_complementario,name="seguro_complementario"),
     path('subsidios_procesados/',subsidios_procesados,name="subsidios_procesados"),
+    path('subsidios_otorgados/', subsidios_otorgados, name = "subsidios_otorgados"),
+    path('analisis_financiero/', analisis_financiero, name = "analisis_financiero"),
     
     # salud renal
     path('indicadores_salud_renal/', indicadores_salud_renal, name = "indicadores_salud_renal"),
