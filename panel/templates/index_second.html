@@ -272,10 +272,10 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'prestaciones' %}"><span class="nav-icon"></span> Prestaciones de EsSalud</a></li>
               {% if perms.prest_prueba.ver_prestaciones_prueba %}
               <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_cronicos' %}"><span class="nav-icon"></span> Pacientes crónicos <br>en EsSalud</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_its' %}"><span class="nav-icon"></span> Pacientes con ITS - <br>  VIH/SIDA en EsSalud</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_its' %}"><span class="nav-icon"></span> Pacientes con ITS - <br>  VIH/SIDA en EsSalud</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_hipertension' %}"><span class="nav-icon"></span> Pacientes con <br> Hipertensión en EsSalud</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'pacientes_diabetes' %}"><span class="nav-icon"></span> Pacientes con <br> Diabetes Mellitus en <br> EsSalud</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'dengue' %}"><span class="nav-icon"></span> Dengue </a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'dengue' %}"><span class="nav-icon"></span> Dengue </a></li> -->
               {% endif %}
             </ul>
         </li>
@@ -370,7 +370,7 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'seguro_accidentes' %}"><span class="nav-icon"></span> Seguro contra <br>accidentes </a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'seguro_complementario' %}"><span class="nav-icon"></span> Seguro complementario <br>de trabajo de riesgo </a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'subsidios_otorgados' %}"><span class="nav-icon"></span> Solicitudes procesadas, <br> días y subsidios <br> otorgados</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'analisis_financiero' %}"><span class="nav-icon"></span> Análisis Financiero</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'analisis_financiero' %}"><span class="nav-icon"></span> Gasto Operativo Asistencial</a></li>
           </ul>
         </li>
         {% endif %}
