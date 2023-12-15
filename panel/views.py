@@ -31,7 +31,7 @@ import json
 # Create your views here.
 # last modificacion 19 - 06 - 2023
 # conexion bd
-conn=psycopg2.connect(host="10.0.1.228", database="dw_essalud", user="ugading001ac", password="casita123")
+conn=psycopg2.connect(host="10.0.1.228", database="dw_essalud", user="postgres", password="AKindOfMagic")
 cur=conn.cursor()
 cur.execute("SELECT des_men1, pref_user, id_red, cod_red FROM dim_red WHERE id_red <> 32 ORDER BY des_men1  ")
 results= cur.fetchall()
@@ -213,7 +213,7 @@ def update_estado_soli(request):
 @csrf_exempt
 def count_users_by_pattern2(request):
     conn3=psycopg2.connect(host="localhost", database="sig_ugad", user="postgres", password="AKindOfMagic")
-    conn4=psycopg2.connect(host="10.0.1.228", database="dw_essalud", user="ugading001ac", password="U64d#Y22gg")
+    conn4=psycopg2.connect(host="10.0.1.228", database="dw_essalud", user="postgres", password="AKindOfMagic")
     if request.method == 'POST':
         pattern = json.loads(request.body)['pattern']
         cur7=conn4.cursor()
