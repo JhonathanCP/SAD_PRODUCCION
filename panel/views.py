@@ -849,3 +849,25 @@ def analisis_financiero(request):
     nuevo_registro = Registro( ip = ip, usuario = username, url = url)
     nuevo_registro.save()
     return render(request,'prestaciones_economicas/analisis_financiero.html')
+
+@login_required(login_url = 'login')
+def mi_consulta(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('mi_consulta')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'mi_consulta/mi_consulta.html')
+
+@login_required(login_url = 'login')
+def fenomeno_del_nino(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('fenomeno_del_nino')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'fenomeno_del_nino/fenomeno_del_nino.html')
