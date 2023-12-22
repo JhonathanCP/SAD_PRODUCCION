@@ -84,7 +84,7 @@ TEMPLATE_DIRS = (
 def url_bi(request):
     if request.method == 'POST':
         pattern = json.loads(request.body)['pattern']
-        conn3 = psycopg2.connect(host = "localhost", database = "sig_ugad", user = "postgres", password = "AKindOfMagic")
+        conn3 = psycopg2.connect(host = "10.0.1.229", database = "sig_ugad", user = "postgres", password = "U64d23DB")
         cur6 = conn3.cursor()
         # cur6.execute("SELECT COUNT(*) FROM public.auth_user WHERE username LIKE 'ugad%' ")
         cur6.execute("SELECT url_bi FROM panel_powerbi WHERE stat = 1 AND template_view = %s",
@@ -103,7 +103,7 @@ def url_bi(request):
 def count_users_by_pattern(request):
     if request.method == 'POST':
         pattern = json.loads(request.body)['pattern']
-        conn3=psycopg2.connect(host="localhost", database="sig_ugad", user="postgres", password="AKindOfMagic")
+        conn3=psycopg2.connect(host="10.0.1.229", database="sig_ugad", user="postgres", password="U64d23DB")
         cur6=conn3.cursor()
         # cur6.execute("SELECT COUNT(*) FROM public.auth_user WHERE username LIKE 'ugad%' ")
         cur6.execute("SELECT COUNT(*) FROM public.auth_user WHERE username LIKE %s",
@@ -120,7 +120,7 @@ def count_users_by_pattern(request):
 def filtro_status(request):
     if request.method == 'POST':
         est_soli = json.loads(request.body)['pattern']
-        conn = psycopg2.connect(host = "localhost", database = "sig_ugad", user = "postgres", password = "AKindOfMagic")
+        conn = psycopg2.connect(host = "localhost", database = "sig_ugad", user = "postgres", password = "U64d23DB")
         cur = conn.cursor()
         cur.execute("SELECT * FROM panel_solicitud WHERE estado_soli = %s", (est_soli,))
         data = cur.fetchall()
@@ -212,7 +212,7 @@ def update_estado_soli(request):
 
 @csrf_exempt
 def count_users_by_pattern2(request):
-    conn3=psycopg2.connect(host="localhost", database="sig_ugad", user="postgres", password="AKindOfMagic")
+    conn3=psycopg2.connect(host="10.0.1.229", database="sig_ugad", user="postgres", password="U64d23DB")
     conn4=psycopg2.connect(host="10.0.1.228", database="dw_essalud", user="postgres", password="AKindOfMagic")
     if request.method == 'POST':
         pattern = json.loads(request.body)['pattern']
