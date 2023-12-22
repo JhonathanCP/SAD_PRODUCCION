@@ -629,7 +629,7 @@ def login(request):
             })
         else:
             auth_login(request,user)
-            return redirect('prestaciones')
+            return redirect('pacientes_cronicos')
 
 def signout(request):
     logout(request)
