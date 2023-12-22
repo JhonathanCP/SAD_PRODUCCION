@@ -45,10 +45,13 @@ INSTALLED_APPS = [
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
     'channels_redis',
-    
+    'django_recaptcha'
     
     
 ]
+
+RECAPTCHA_SITE_KEY = '6LfJ-TkpAAAAAGk-luwLSzw3ihrxMprK85ckCalL'
+RECAPTCHA_SECRET_KEY = '<6LfJ-TkpAAAAANf8svkB4ZAsxv7rUuaeKOt-G8bd>'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
