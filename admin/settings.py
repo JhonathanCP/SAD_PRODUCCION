@@ -51,7 +51,11 @@ INSTALLED_APPS = [
 ]
 
 RECAPTCHA_SITE_KEY = '6LfJ-TkpAAAAAGk-luwLSzw3ihrxMprK85ckCalL'
-RECAPTCHA_SECRET_KEY = '<6LfJ-TkpAAAAANf8svkB4ZAsxv7rUuaeKOt-G8bd>'
+RECAPTCHA_SECRET_KEY = '<6LfJ-TkpAAAAANf8svkB4ZAsxv7rUuaeKOt-G8bd'
+# settings.py
+RECAPTCHA_PUBLIC_KEY = '6LfJ-TkpAAAAAGk-luwLSzw3ihrxMprK85ckCalL'
+RECAPTCHA_PRIVATE_KEY = '6LfJ-TkpAAAAANf8svkB4ZAsxv7rUuaeKOt-G8bd'
+
 RECAPTCHA_API_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
