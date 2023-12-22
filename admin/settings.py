@@ -226,3 +226,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 SESSION_IDLE_TIMEOUT = 2400
 LOGOUT_REDIRECT_URL = '/logout/'
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
