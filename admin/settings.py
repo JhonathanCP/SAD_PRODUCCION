@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'panel.middleware.SessionIdleTimeoutMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware',
+    'captcha.middleware.RecaptchaMiddleware',
     
 ]
 
