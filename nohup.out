@@ -2306,3 +2306,655 @@ cerrar
 https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
 cerrar
 [22/Dec/2023 07:41:52] "POST /url_bi/ HTTP/1.1" 200 167
+Watching for file changes with StatReloader
+Performing system checks...
+
+/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/dash_apps/finished_apps/grafico.py:5: UserWarning:
+
+
+The dash_core_components package is deprecated. Please replace
+`import dash_core_components as dcc` with `from dash import dcc`
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): panel.
+Run 'python manage.py migrate' to apply them.
+December 22, 2023 - 08:51:57
+Django version 3.2.16, using settings 'admin.settings'
+Starting development server at http://10.0.1.229:8000/
+Quit the server with CONTROL-C.
+[22/Dec/2023 09:18:10] "GET / HTTP/1.1" 200 5811
+[22/Dec/2023 09:18:10] "GET /static/css/vendors/simplebar.css HTTP/1.1" 200 129
+[22/Dec/2023 09:18:10] "GET /static/vendors/simplebar/css/simplebar.css HTTP/1.1" 200 3907
+[22/Dec/2023 09:18:10] "GET /static/css/examples.css HTTP/1.1" 200 1685
+[22/Dec/2023 09:18:10] "GET /static/assets/brand/Imagen3.png HTTP/1.1" 200 7541
+[22/Dec/2023 09:18:10] "GET /static/vendors/%40coreui/coreui/js/coreui.bundle.min.js HTTP/1.1" 200 87919
+[22/Dec/2023 09:18:10] "GET /static/vendors/simplebar/js/simplebar.min.js HTTP/1.1" 200 65923
+[22/Dec/2023 09:18:10] "GET /static/css/style.css HTTP/1.1" 200 343213
+[22/Dec/2023 09:18:11] "GET /static/vendors/%40coreui/icons/svg/free.svg HTTP/1.1" 200 418316
+[22/Dec/2023 09:18:11] "GET /static/assets/brand/FondoNuevo.png HTTP/1.1" 200 1141822
+[22/Dec/2023 09:18:11] "GET /static/assets/images/icon/favicon1.ico HTTP/1.1" 200 3774
+cerrar
+[22/Dec/2023 09:18:39] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 09:18:39] "GET /prestaciones/ HTTP/1.1" 200 26505
+[22/Dec/2023 09:18:39] "GET /static/assets2/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css HTTP/1.1" 200 6005
+[22/Dec/2023 09:18:39] "GET /static/vendors/%40coreui/chartjs/css/coreui-chartjs.css HTTP/1.1" 200 866
+[22/Dec/2023 09:18:39] "GET /static/assets2/extra-libs/prism/prism.css HTTP/1.1" 200 7591
+[22/Dec/2023 09:18:39] "GET /static/assets/img/avatars/user-principal.png HTTP/1.1" 200 19456
+[22/Dec/2023 09:18:39] "GET /static/vendors/chart.js/js/chart.min.js HTTP/1.1" 200 199560
+[22/Dec/2023 09:18:39] "GET /static/vendors/%40coreui/chartjs/js/coreui-chartjs.js HTTP/1.1" 200 4560
+[22/Dec/2023 09:18:39] "GET /static/vendors/%40coreui/utils/js/coreui-utils.js HTTP/1.1" 200 3901
+[22/Dec/2023 09:18:39] "GET /static/js/main.js HTTP/1.1" 200 6638
+[22/Dec/2023 09:18:39] "GET /static/assets/extra-libs/prism/prism.js HTTP/1.1" 200 22152
+[22/Dec/2023 09:18:39] "GET /static/assets2/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js HTTP/1.1" 200 63893
+[22/Dec/2023 09:18:39] "GET /static/assets2/extra-libs/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 200 137431
+[22/Dec/2023 09:18:39] "GET /static/assets2/libs/jquery/dist/jquery.min.js HTTP/1.1" 200 166654
+[22/Dec/2023 09:18:39] "GET /static/dist2/css/style.min.css HTTP/1.1" 200 673334
+[22/Dec/2023 09:18:39] "GET /static/dist2/js/pages/datatable/datatable-api.init.js HTTP/1.1" 200 5822
+[22/Dec/2023 09:18:39] "GET /static/assets/brand/logo_gcopinfo2.png HTTP/1.1" 200 6729
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 09:18:40] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 09:18:40] "POST /url_bi/ HTTP/1.1" 500 69070
+cerrar
+[22/Dec/2023 09:18:40] "POST /url_bi/ HTTP/1.1" 500 69070
+cerrar
+[22/Dec/2023 09:18:50] "GET /mi_consulta/ HTTP/1.1" 200 26490
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 09:18:50] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 09:18:51] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 09:18:51] "POST /url_bi/ HTTP/1.1" 200 210
+cerrar
+[22/Dec/2023 09:19:08] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26504
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 09:19:08] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:08] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:08] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:19:25] "GET /pacientes_cronicos/ HTTP/1.1" 200 26517
+cerrar
+Not Found: /pacientes_cronicos/assets/brand/coreui.svg
+[22/Dec/2023 09:19:25] "GET /pacientes_cronicos/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:25] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:25] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:19:51] "GET /pacientes_cronicos/ HTTP/1.1" 200 26517
+cerrar
+Not Found: /pacientes_cronicos/assets/brand/coreui.svg
+[22/Dec/2023 09:19:51] "GET /pacientes_cronicos/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:52] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:19:52] "POST /url_bi/ HTTP/1.1" 200 167
+[22/Dec/2023 09:39:05] "GET / HTTP/1.1" 302 0
+[22/Dec/2023 09:39:05] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 09:39:05] "GET / HTTP/1.1" 200 5811
+[22/Dec/2023 09:39:06] "GET /static/assets/brand/FondoNuevo.png HTTP/1.1" 200 1141822
+cerrar
+[22/Dec/2023 09:39:26] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 09:39:26] "GET /prestaciones/ HTTP/1.1" 200 26505
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 09:39:26] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 09:39:26] "POST /url_bi/ HTTP/1.1" 500 68937
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 09:39:26] "POST /url_bi/ HTTP/1.1" 500 68937
+cerrar
+[22/Dec/2023 09:41:08] "GET /pacientes_cronicos/ HTTP/1.1" 200 26517
+cerrar
+Not Found: /pacientes_cronicos/assets/brand/coreui.svg
+[22/Dec/2023 09:41:08] "GET /pacientes_cronicos/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:41:08] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:41:08] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:44:08] "GET /monitoreo_abastecimiento/ HTTP/1.1" 200 26522
+cerrar
+Not Found: /monitoreo_abastecimiento/assets/brand/coreui.svg
+[22/Dec/2023 09:44:08] "GET /monitoreo_abastecimiento/assets/brand/coreui.svg HTTP/1.1" 404 13592
+https://app.powerbi.com/view?r=eyJrIjoiNGIzYjY4NGQtZDk4MS00MTAwLThlZGUtMzA5OTRhMTM2NjhkIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:44:08] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiNGIzYjY4NGQtZDk4MS00MTAwLThlZGUtMzA5OTRhMTM2NjhkIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:44:08] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:45:52] "GET /canal_distribucion/ HTTP/1.1" 200 26676
+cerrar
+Not Found: /canal_distribucion/assets/brand/coreui.svg
+[22/Dec/2023 09:45:52] "GET /canal_distribucion/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiZDY2MDZhOWQtNGUxMC00OTRjLWJlMzgtNzAxNGE3NDBhNzg4IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:45:52] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZDY2MDZhOWQtNGUxMC00OTRjLWJlMzgtNzAxNGE3NDBhNzg4IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:45:52] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:45:56] "GET /carga_consumo/ HTTP/1.1" 200 26497
+cerrar
+Not Found: /carga_consumo/assets/brand/coreui.svg
+[22/Dec/2023 09:45:56] "GET /carga_consumo/assets/brand/coreui.svg HTTP/1.1" 404 13559
+https://app.powerbi.com/view?r=eyJrIjoiMzUyZmFlYTktNTgxZi00ZTZhLWJlNTgtZmZiY2YxNzlmNTdiIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:45:56] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiMzUyZmFlYTktNTgxZi00ZTZhLWJlNTgtZmZiY2YxNzlmNTdiIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:45:56] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:46:06] "GET /monitoreo_abastecimiento/ HTTP/1.1" 200 26522
+cerrar
+Not Found: /monitoreo_abastecimiento/assets/brand/coreui.svg
+[22/Dec/2023 09:46:06] "GET /monitoreo_abastecimiento/assets/brand/coreui.svg HTTP/1.1" 404 13592
+https://app.powerbi.com/view?r=eyJrIjoiNGIzYjY4NGQtZDk4MS00MTAwLThlZGUtMzA5OTRhMTM2NjhkIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:46:06] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiNGIzYjY4NGQtZDk4MS00MTAwLThlZGUtMzA5OTRhMTM2NjhkIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:46:06] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:46:10] "GET /canal_distribucion/ HTTP/1.1" 200 26676
+cerrar
+Not Found: /canal_distribucion/assets/brand/coreui.svg
+[22/Dec/2023 09:46:10] "GET /canal_distribucion/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiZDY2MDZhOWQtNGUxMC00OTRjLWJlMzgtNzAxNGE3NDBhNzg4IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:46:10] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZDY2MDZhOWQtNGUxMC00OTRjLWJlMzgtNzAxNGE3NDBhNzg4IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:46:10] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 09:48:54] "GET /mi_consulta/ HTTP/1.1" 200 26490
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 09:48:54] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 09:48:54] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 09:48:54] "POST /url_bi/ HTTP/1.1" 200 210
+cerrar
+[22/Dec/2023 09:49:11] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26504
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 09:49:11] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:49:11] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 09:49:11] "POST /url_bi/ HTTP/1.1" 200 167
+[22/Dec/2023 09:51:21] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 09:51:21] "GET / HTTP/1.1" 200 5811
+[22/Dec/2023 09:53:14] "GET /datos_registro/ HTTP/1.1" 200 13507
+Not Found: /datos_registro/assets/favicon/favicon-32x32.png
+[22/Dec/2023 09:53:15] "GET /datos_registro/assets/favicon/favicon-32x32.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-16x16.png
+[22/Dec/2023 09:53:15] "GET /datos_registro/assets/favicon/favicon-16x16.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-96x96.png
+[22/Dec/2023 09:53:15] "GET /datos_registro/assets/favicon/favicon-96x96.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/android-icon-192x192.png
+[22/Dec/2023 09:53:15] "GET /datos_registro/assets/favicon/android-icon-192x192.png HTTP/1.1" 404 13610
+[22/Dec/2023 09:55:46] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 09:55:46] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 09:55:46] "GET / HTTP/1.1" 200 5811
+[22/Dec/2023 09:56:05] "GET /datos_registro/ HTTP/1.1" 200 13507
+Not Found: /datos_registro/assets/favicon/android-icon-192x192.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/android-icon-192x192.png HTTP/1.1" 404 13610
+Not Found: /datos_registro/assets/favicon/favicon-32x32.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-32x32.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-96x96.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-96x96.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-16x16.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-16x16.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-32x32.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-32x32.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-16x16.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-16x16.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/favicon-96x96.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/favicon-96x96.png HTTP/1.1" 404 13589
+Not Found: /datos_registro/assets/favicon/android-icon-192x192.png
+[22/Dec/2023 09:56:05] "GET /datos_registro/assets/favicon/android-icon-192x192.png HTTP/1.1" 404 13610
+[22/Dec/2023 09:56:07] "GET / HTTP/1.1" 200 5811
+[22/Dec/2023 10:02:10] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 10:02:10] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 10:02:11] "GET / HTTP/1.1" 200 5811
+Watching for file changes with StatReloader
+Performing system checks...
+
+/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/dash_apps/finished_apps/grafico.py:5: UserWarning:
+
+
+The dash_core_components package is deprecated. Please replace
+`import dash_core_components as dcc` with `from dash import dcc`
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): panel.
+Run 'python manage.py migrate' to apply them.
+December 22, 2023 - 10:05:32
+Django version 3.2.16, using settings 'admin.settings'
+Starting development server at http://10.0.1.229:8000/
+Quit the server with CONTROL-C.
+[22/Dec/2023 10:05:33] "GET / HTTP/1.1" 200 5820
+Watching for file changes with StatReloader
+Performing system checks...
+
+/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/dash_apps/finished_apps/grafico.py:5: UserWarning:
+
+
+The dash_core_components package is deprecated. Please replace
+`import dash_core_components as dcc` with `from dash import dcc`
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): panel.
+Run 'python manage.py migrate' to apply them.
+December 22, 2023 - 10:07:39
+Django version 3.2.16, using settings 'admin.settings'
+Starting development server at http://10.0.1.229:8000/
+Quit the server with CONTROL-C.
+[22/Dec/2023 10:07:40] "GET / HTTP/1.1" 200 5820
+Watching for file changes with StatReloader
+Performing system checks...
+
+/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/dash_apps/finished_apps/grafico.py:5: UserWarning:
+
+
+The dash_core_components package is deprecated. Please replace
+`import dash_core_components as dcc` with `from dash import dcc`
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): panel.
+Run 'python manage.py migrate' to apply them.
+December 22, 2023 - 10:09:57
+Django version 3.2.16, using settings 'admin.settings'
+Starting development server at http://10.0.1.229:8000/
+Quit the server with CONTROL-C.
+[22/Dec/2023 10:09:59] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:10:00] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:10:01] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:10:03] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:10:04] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:45:04] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 10:45:42] "POST / HTTP/1.1" 200 6445
+cerrar
+[22/Dec/2023 10:45:49] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 10:45:50] "GET /prestaciones/ HTTP/1.1" 200 26498
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 10:45:50] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 10:45:50] "POST /url_bi/ HTTP/1.1" 500 68943
+cerrar
+[22/Dec/2023 10:45:50] "POST /url_bi/ HTTP/1.1" 500 68943
+cerrar
+[22/Dec/2023 10:46:09] "GET /pacientes_cronicos/ HTTP/1.1" 200 26510
+cerrar
+Not Found: /pacientes_cronicos/assets/brand/coreui.svg
+[22/Dec/2023 10:46:10] "GET /pacientes_cronicos/assets/brand/coreui.svg HTTP/1.1" 404 13574
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 10:46:10] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiMDg0Y2JhNTktMTRkNC00ODFhLTlmY2UtNzQxNGZjZWU0MDM3IiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 10:46:10] "POST /url_bi/ HTTP/1.1" 200 167
+[22/Dec/2023 11:40:41] "GET /mi_consulta/ HTTP/1.1" 302 0
+[22/Dec/2023 11:40:41] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 11:40:41] "GET / HTTP/1.1" 200 5820
+cerrar
+[22/Dec/2023 11:40:55] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 11:40:55] "GET /prestaciones/ HTTP/1.1" 200 26498
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 11:40:55] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 11:40:55] "POST /url_bi/ HTTP/1.1" 500 68943
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 11:40:55] "POST /url_bi/ HTTP/1.1" 500 68943
+cerrar
+[22/Dec/2023 11:41:49] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 11:41:50] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:41:50] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:41:50] "POST /url_bi/ HTTP/1.1" 200 210
+cerrar
+[22/Dec/2023 11:41:50] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26497
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 11:41:50] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 11:41:50] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 11:41:51] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 11:45:27] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 11:45:27] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:45:27] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:45:27] "POST /url_bi/ HTTP/1.1" 200 210
+cerrar
+[22/Dec/2023 11:45:28] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26497
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 11:45:28] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 11:45:28] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 11:45:28] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 11:54:34] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 11:54:34] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:54:34] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 11:54:34] "POST /url_bi/ HTTP/1.1" 200 210
+cerrar
+[22/Dec/2023 12:27:44] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26497
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 12:27:44] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 12:27:44] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 12:27:45] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 12:32:02] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 12:32:02] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 12:32:02] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 12:32:02] "POST /url_bi/ HTTP/1.1" 200 210
+[22/Dec/2023 12:39:18] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 12:39:18] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 12:39:21] "GET / HTTP/1.1" 200 5820
+cerrar
+[22/Dec/2023 12:51:18] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 12:51:18] "GET /prestaciones/ HTTP/1.1" 200 26498
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 12:51:19] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 12:51:19] "POST /url_bi/ HTTP/1.1" 500 68583
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 12:51:19] "POST /url_bi/ HTTP/1.1" 500 68957
+cerrar
+[22/Dec/2023 12:51:20] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 12:51:20] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 12:51:20] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 12:51:20] "POST /url_bi/ HTTP/1.1" 200 210
+[22/Dec/2023 13:02:05] "GET / HTTP/1.1" 200 5820
+[22/Dec/2023 13:02:05] "GET /static/assets/brand/FondoNuevo.png HTTP/1.1" 200 1141822
+[22/Dec/2023 13:02:05] "GET /static/css/examples.css.map HTTP/1.1" 200 9607
+[22/Dec/2023 13:02:05] "GET /static/css/style.css.map HTTP/1.1" 200 821951
+[22/Dec/2023 13:02:05] "GET /static/vendors/%40coreui/coreui/js/coreui.bundle.min.js.map HTTP/1.1" 200 363710
+cerrar
+[22/Dec/2023 13:02:22] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 13:02:22] "GET /prestaciones/ HTTP/1.1" 200 26498
+[22/Dec/2023 13:02:22] "GET /static/dist2/css/style.min.css HTTP/1.1" 200 673334
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 13:02:22] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+[22/Dec/2023 13:02:22] "GET /static/vendors/%40coreui/chartjs/css/coreui-chartjs.css.map HTTP/1.1" 200 87356
+[22/Dec/2023 13:02:22] "GET /static/vendors/%40coreui/chartjs/js/coreui-chartjs.js.map HTTP/1.1" 200 8690
+[22/Dec/2023 13:02:22] "GET /static/js/main.js.map HTTP/1.1" 200 14711
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 13:02:23] "POST /url_bi/ HTTP/1.1" 500 68952
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 13:02:23] "POST /url_bi/ HTTP/1.1" 500 68952
+[22/Dec/2023 14:23:26] "GET /prestaciones/ HTTP/1.1" 302 0
+[22/Dec/2023 14:23:26] "GET /logout/ HTTP/1.1" 302 0
+[22/Dec/2023 14:23:26] "GET / HTTP/1.1" 200 5820
+cerrar
+[22/Dec/2023 14:23:38] "POST / HTTP/1.1" 302 0
+cerrar
+[22/Dec/2023 14:23:38] "GET /prestaciones/ HTTP/1.1" 200 26498
+cerrar
+Not Found: /prestaciones/assets/brand/coreui.svg
+[22/Dec/2023 14:23:39] "GET /prestaciones/assets/brand/coreui.svg HTTP/1.1" 404 13556
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 14:23:39] "POST /url_bi/ HTTP/1.1" 500 68952
+Internal Server Error: /url_bi/
+Traceback (most recent call last):
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ugadingenieria02/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ugadingenieria02/Documentos/APPS_DJANGO/APP1/panel/views.py", line 94, in url_bi
+    url = count1[0]
+TypeError: 'NoneType' object is not subscriptable
+cerrar
+[22/Dec/2023 14:23:39] "POST /url_bi/ HTTP/1.1" 500 68952
+cerrar
+[22/Dec/2023 14:23:43] "GET /monitoreo_abastecimiento/ HTTP/1.1" 200 26515
+cerrar
+Not Found: /monitoreo_abastecimiento/assets/brand/coreui.svg
+[22/Dec/2023 14:23:43] "GET /monitoreo_abastecimiento/assets/brand/coreui.svg HTTP/1.1" 404 13592
+https://app.powerbi.com/view?r=eyJrIjoiNGIzYjY4NGQtZDk4MS00MTAwLThlZGUtMzA5OTRhMTM2NjhkIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 14:23:43] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 14:23:45] "GET /fenomeno_del_nino/ HTTP/1.1" 200 26497
+cerrar
+Not Found: /fenomeno_del_nino/assets/brand/coreui.svg
+[22/Dec/2023 14:23:45] "GET /fenomeno_del_nino/assets/brand/coreui.svg HTTP/1.1" 404 13571
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 14:23:45] "POST /url_bi/ HTTP/1.1" 200 167
+https://app.powerbi.com/view?r=eyJrIjoiZWRkOTRjYjQtNWJkMi00YjI5LTgzMTAtZWE4ZWU2MTdiOGMxIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9
+cerrar
+[22/Dec/2023 14:23:46] "POST /url_bi/ HTTP/1.1" 200 167
+cerrar
+[22/Dec/2023 14:23:46] "GET /mi_consulta/ HTTP/1.1" 200 26483
+cerrar
+Not Found: /mi_consulta/assets/brand/coreui.svg
+[22/Dec/2023 14:23:47] "GET /mi_consulta/assets/brand/coreui.svg HTTP/1.1" 404 13553
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 14:23:48] "POST /url_bi/ HTTP/1.1" 200 210
+https://app.powerbi.com/view?r=eyJrIjoiODEyYTFlMGYtMzFiNC00NTFjLWI2MDgtYWQwYTAyNjZjNGQyIiwidCI6IjM0ZjMyNDE5LTFjMDUtNDc1Ni04OTZlLTQ1ZDYzMzcyNjU5YiIsImMiOjR9&pageName=ReportSection14b602310c7529b52d0e
+cerrar
+[22/Dec/2023 14:23:52] "POST /url_bi/ HTTP/1.1" 200 210

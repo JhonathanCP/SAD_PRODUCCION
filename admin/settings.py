@@ -116,7 +116,7 @@ DATABASES = {
         'NAME': 'sig_ugad',
         'USER': 'postgres',
         'PASSWORD': 'U64d23DB',
-        'HOST': '127.0.0.1',
+        'HOST': '10.0.1.229',
         'PORT': '5432',
     }
 }
