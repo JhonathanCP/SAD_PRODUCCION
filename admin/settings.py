@@ -52,6 +52,8 @@ INSTALLED_APPS = [
 
 RECAPTCHA_SITE_KEY = '6LfJ-TkpAAAAAGk-luwLSzw3ihrxMprK85ckCalL'
 RECAPTCHA_SECRET_KEY = '<6LfJ-TkpAAAAANf8svkB4ZAsxv7rUuaeKOt-G8bd>'
+RECAPTCHA_API_URL = 'https://www.google.com/recaptcha/api/siteverify'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,7 +67,6 @@ MIDDLEWARE = [
     'panel.middleware.SessionIdleTimeoutMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware',
-    'captcha.middleware.RecaptchaMiddleware',
     
 ]
 
