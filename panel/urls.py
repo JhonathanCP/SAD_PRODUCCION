@@ -91,4 +91,8 @@ urlpatterns=[
     #fenomeno_del_niño
     path('fenomeno_del_nino/',fenomeno_del_nino,name="fenomeno_del_nino"),
 
+    path('salud_renal/',mi_consulta,name="salud_renal"),
+    
+    path('ind_prest_salud/',fenomeno_del_nino,name="ind_prest_salud"),
+
     ]
