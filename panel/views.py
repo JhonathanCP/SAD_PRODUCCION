@@ -871,3 +871,14 @@ def fenomeno_del_nino(request):
     nuevo_registro = Registro( ip = ip, usuario = username, url = url)
     nuevo_registro.save()
     return render(request,'fenomeno_del_nino/fenomeno_del_nino.html')
+
+@login_required(login_url = 'login')
+def salud_renal(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('salud_renal')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'salud_renal/salud_renal.html')
