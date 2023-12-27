@@ -1,30 +1,16 @@
-# Basado en la imagen oficial de Python
+# Usa la imagen oficial de Python 3.12
 FROM python:3.9
+# Establece el directorio de trabajo
+WORKDIR /usr/src/app
 
-# Evita que Python genere archivos .pyc
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Copia los archivos de requerimientos y el código fuente
+COPY requirements.txt ./
+COPY . .
 
-# Establecer el directorio de trabajo
-WORKDIR /app
-
-# Copiar el archivo de requisitos y instalar
-COPY requirements.txt /app/
+# Instala las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install Django==4.1.6
+#PRUEBA
+#RUN python manage.py collectstatic --noinput
 
-# Instalar Apache y mod_wsgi
-RUN apt-get update && apt-get install -y apache2 libapache2-mod-wsgi-py3
-RUN a2enmod wsgi
-
-# Copiar el código de la aplicación y configuración Apache
-COPY . /app/
-COPY django-app.conf /etc/apache2/sites-available/
-RUN a2ensite django-app.conf
-RUN a2dissite 000-default.conf
-
-# Exponer el puerto 80
-EXPOSE 80
-
-# Iniciar Apache en segundo plano
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+# Comando para ejecutar la aplicación con Gunicorn
+CMD ["gunicorn", "admin.wsgi:application", "--bind", "0.0.0.0:8000"]

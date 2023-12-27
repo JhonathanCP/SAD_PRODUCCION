@@ -124,8 +124,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sig_ugad',
         'USER': 'postgres',
-        'PASSWORD': 'U64d23DB',
-        'HOST': 'localhost',
+        'PASSWORD': 'AKindOfMagic',
+        'HOST': '10.0.1.229',
         'PORT': '5432',
     }
 }
@@ -195,13 +195,16 @@ PLOTLY_COMPONENTS=[
 
 
 
-STATICFILES_LOCATION='static'
-STATIC_URL='/static/'
-STATIC_ROOT='static'
-
-STATICFILES_DIR={
-    os.path.join(BASE_DIR,'panel/static')
-}
+#STATICFILES_LOCATION='static'
+#STATIC_URL='/static/'
+#STATIC_URL = '/static/'
+#STATIC_ROOT = '/usr/src/app/panel/static/'
+# STATIC_ROOT='static'
+#STATIC_ROOT='/home/ugadingenieria02/Documentos/APPS_DJANGO/REPORTES_GCTIC_NGINX/panel/static/'
+#STATIC_ROOT = "/var/www/example.com/static/"
+#STATICFILES_DIR={
+#    os.path.join(BASE_DIR,'panel/static')
+#}
 
 
 
@@ -209,8 +212,19 @@ STATICFILES_DIR={
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# ...
+
+# STATICFILES_LOCATION = 'static'  # Este parámetro no es necesario
+STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/src/app/panel/static/'
+
+# Asegúrate de que esté configurado correctamente
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'panel/static'),
+]
 # LOGIN_URL= 'index'
 
 

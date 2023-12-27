@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    expose:
+      - "8000"
+    container_name: my-django-app
+    networks:
+      - essalud
+    volumes:
+      - static_volume:/static  # Nombre de la red
+    # Otras configuraciones...
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    container_name: my-nginx-proxy
+    depends_on:
+      - web
+    networks:
+      - essalud  # Nombre de la red
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/static
+    # Otras configuraciones...
+
+networks:
+  essalud:  # Nombre de la red
+    driver: bridge
+volumes:
+  static_volume:
