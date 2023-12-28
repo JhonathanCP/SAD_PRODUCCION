@@ -11,8 +11,8 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title> GCTIC - {% block title %} {% endblock %} </title>
-    <link rel="shortcut icon" href="{% static 'assets/images/icon/favicon1.ico' %}">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <!-- <link rel="shortcut icon" href="{% static 'assets/images/icon/favicon1.ico' %}"> -->
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
@@ -20,12 +20,12 @@
     <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png"> -->
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{% static 'assets/favicon/manifest.json' %}">
+    <link rel="manifest" href="https://gifted-umbrella.surge.sh/assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -41,31 +41,31 @@
     />
 
     <link
-      href="{% static 'assets2/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %} "
+      href="https://gifted-umbrella.surge.sh/assets2/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css"
       rel="stylesheet"
     />
 
     <link      
       type="text/css"
-      href="{% static 'assets2/extra-libs/prism/prism.css' %}"
+      href="https://gifted-umbrella.surge.sh/assets2/extra-libs/prism/prism.css"
       rel="stylesheet"
     />
 
     
     <!-- Custom CSS -->
-    <link href="{% static 'dist2/css/style.min.css' %}" rel="stylesheet" />
+    <link href="https://lovely-porter.surge.sh/dist2/css/style.min.css" rel="stylesheet" />
 
      {% block links %}
      {% endblock %} 
 
     <!-- Vendors styles-->
-    <link href="{% static 'vendors/simplebar/css/simplebar.css' %}" rel="stylesheet" >
-    <link href="{% static 'css/vendors/simplebar.css' %}" rel="stylesheet">  <!-- probable que el css no este leyendo-->
+    <link href="https://lovely-porter.surge.sh/vendors/simplebar/css/simplebar.css" rel="stylesheet" >
+    <link href="https://lovely-porter.surge.sh/css/vendors/simplebar.css" rel="stylesheet">  <!-- probable que el css no este leyendo-->
     <!-- Main styles for this application-->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet"> 
+    <link href="https://lovely-porter.surge.sh/css/style.css" rel="stylesheet"> 
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css" rel="stylesheet">
-    <link href="{% static 'css/examples.css' %}" rel="stylesheet">
+    <link href="https://lovely-porter.surge.sh/css/examples.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -134,14 +134,14 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
-    <link href="{% static 'vendors/@coreui/chartjs/css/coreui-chartjs.css' %}" rel="stylesheet">
+    <link href="https://lovely-porter.surge.sh/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
   </head>
   <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar" style="background-color: #1e88e5;">
       <div class="sidebar-brand d-none d-md-flex">
        <a href="{% url 'prestaciones' %}">  <img
         class="sidebar-brand-full"                  
-        src="{% static 'assets/brand/Imagen3.png' %}"
+        src="https://gifted-umbrella.surge.sh/assets/brand/Imagen3.png"
         width="178" height="46" 
         alt="homepage"
         class="dark-logo"
@@ -149,7 +149,7 @@
         <a href="{% url 'prestaciones' %}"><img
         width="56" height="40"
         class="sidebar-brand-narrow"                  
-        src="{% static 'assets/brand/logo_gcopinfo2.png' %}"
+        src="https://gifted-umbrella.surge.sh/assets/brand/logo_gcopinfo2.png"
         width="178" height="46" 
         alt="homepage"
         class="dark-logo"
@@ -159,22 +159,22 @@
         {% if perms.panel.view_user %}
         <li class="nav-item"><a class="nav-link" href="#">
             <svg class="nav-icon">
-              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-speedometer"></use>
+              <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Panel de Administración</a></li>
         <li class="nav-title">Theme</li>
         <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">
             <svg class="nav-icon">
-              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-drop"></use>
+              <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Roles</a>
         </li>
         <li class="nav-item"><a class="nav-link" href="">
             <svg class="nav-icon">
-              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-drop"></use>
+              <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Content Type </a>
         </li>
         <li class="nav-item"><a class="nav-link" href="{% url 'userView' %}">
             <svg class="nav-icon">
-              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-user"></use>
+              <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
             </svg> Usuarios</a>
         </li>
         <!-- Solicitudes -->
@@ -501,7 +501,7 @@
         <div class="container-fluid">
           <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
             <svg class="icon icon-lg">
-              <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-menu"></use>
+              <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
             </svg>
           </button><a class="header-brand d-md-none" href="#">
             <svg width="118" height="46" alt="CoreUI Logo">
@@ -533,7 +533,7 @@
           <ul class="header-nav ms-3">
             <li class="nav-item"><a class="nav-link" href="#"><b>{{ user.username }}</b></a></li>
             <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <div class="avatar avatar-md"><img class="avatar-img" src="{% static 'assets/img/avatars/user-principal.png' %}" alt="user@email.com"></div>
+                <div class="avatar avatar-md"><img class="avatar-img" src="/assets/img/avatars/user-principal.png" alt="user@email.com"></div>
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <!-- <div class="dropdown-header bg-light py-2">
@@ -559,10 +559,10 @@
                   <div class="fw-semibold">Configuración</div>
                 </div><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
-                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-user"></use>
+                    <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
                   </svg> Perfil</a><a class="dropdown-item" href="{% url 'edit_user2' user.id %}">
                   <svg class="icon me-2">
-                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-settings"></use>
+                    <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
                   </svg> Configuración</a>
                   <hr>
                   <!--<a class="dropdown-item" href="#">
@@ -580,7 +580,7 @@
                   </svg> Lock Account </a>-->
                   <a class="dropdown-item" href="{% url 'logout' %}">
                   <svg class="icon me-2">
-                    <use xlink:href="{% static 'vendors/@coreui/icons/svg/free.svg' %}#cil-account-logout"></use>
+                    <use xlink:href="https://lovely-porter.surge.sh/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                   </svg> Salir</a>
               </div>
             </li>
@@ -663,19 +663,19 @@
       </footer>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="{% static 'vendors/@coreui/coreui/js/coreui.bundle.min.js' %}"></script>
-    <script src="{% static 'vendors/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="https://lovely-porter.surge.sh/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="https://lovely-porter.surge.sh/vendors/simplebar/js/simplebar.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="{% static 'vendors/chart.js/js/chart.min.js' %}"></script>
-    <script src="{% static 'vendors/@coreui/chartjs/js/coreui-chartjs.js' %}"></script>
-    <script src="{% static 'vendors/@coreui/utils/js/coreui-utils.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://lovely-porter.surge.sh/vendors/chart.js/js/chart.min.js"></script>
+    <script src="https://lovely-porter.surge.sh/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="https://lovely-porter.surge.sh/vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="https://lovely-porter.surge.sh/js/main.js"></script>
 
-    <script src="{% static 'assets/extra-libs/prism/prism.js' %}"></script>
-    <script src="{% static 'assets2/libs/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'assets2/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
-    <script src="{% static 'assets2/extra-libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
-    <script src="{% static 'dist2/js/pages/datatable/datatable-api.init.js' %}"></script>
+    <script src="http://gifted-umbrella.surge.sh/assets/extra-libs/prism/prism.js"></script>
+    <script src="https://gifted-umbrella.surge.sh/assets2/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://gifted-umbrella.surge.sh/assets2/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://gifted-umbrella.surge.sh/assets2/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="https://lovely-porter.surge.sh/dist2/js/pages/datatable/datatable-api.init.js"></script>
     {% block script_body %}
     {% endblock %}
 
