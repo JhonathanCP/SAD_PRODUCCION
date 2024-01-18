@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 
-from .views import index, UserListView,CreateUserView, VistaCreateUserView, DeleteUserView, EditUserView,EditUserView2, UpdateUserView,dash,register,login,signout,dashinteractive,dashreporte,authentication_login,dashtwo,dashthree,dashfour, UpdateUserView2, lock_account,unlock_account,userView, roles, prestaciones, servicio_emergencia,index_new, datos_registro, solicitud, view_solicitud, solicitudView, registra_new_user, emergencia_second, tables, programacion, alta_direccion, count_users_by_pattern, count_users_by_pattern2,update_estado_soli,monitoreo_abastecimiento,canal_distribucion,carga_consumo,aporte_asegurados,certificado_incapacidad,pacientes_cronicos,poblacion_asegurada,seguro_accidentes,seguro_complementario,subsidios_procesados,pacientes_diabetes,pacientes_hipertension,pacientes_its,filtro_status, url_bi, dengue, indicadores_salud_renal, indicadores_fonafe, subsidios_otorgados,analisis_financiero, fenomeno_del_nino, mi_consulta, salud_renal
+from .views import index, UserListView,CreateUserView, VistaCreateUserView, DeleteUserView, EditUserView,EditUserView2, UpdateUserView,dash,register,login,signout,dashinteractive,dashreporte,authentication_login,dashtwo,dashthree,dashfour, UpdateUserView2, lock_account,unlock_account,userView, roles, prestaciones, servicio_emergencia,index_new, datos_registro, solicitud, view_solicitud, solicitudView, registra_new_user, emergencia_second, tables, programacion, alta_direccion, count_users_by_pattern, count_users_by_pattern2,update_estado_soli,monitoreo_abastecimiento,canal_distribucion,carga_consumo,aporte_asegurados,certificado_incapacidad,pacientes_cronicos,poblacion_asegurada,seguro_accidentes,seguro_complementario,subsidios_procesados,pacientes_diabetes,pacientes_hipertension,pacientes_its,filtro_status, url_bi, dengue, indicadores_salud_renal, indicadores_fonafe, subsidios_otorgados,analisis_financiero, fenomeno_del_nino, mi_consulta, salud_renal, inmunizaciones, capital_humano, sgd
 
 from panel.dash_apps.finished_apps import simpleexample,pruebacadena,barraprueba,grafico,reporte,grafico2,pruebacallback,reportesalud,ventas,practica
 
@@ -87,10 +87,12 @@ urlpatterns=[
 
     # mi consulta
     path('mi_consulta/',mi_consulta,name="mi_consulta"),
-    
+    path('sgd/',sgd,name="sgd"),
     #fenomeno_del_niño
     path('fenomeno_del_nino/',fenomeno_del_nino,name="fenomeno_del_nino"),
 
-    path('salud_renal/',salud_renal,name="salud_renal")
+    path('salud_renal/',salud_renal,name="salud_renal"),
+    path('inmunizaciones/',inmunizaciones,name="inmunizaciones"),
+    path('capital_humano/', capital_humano, name= "capital_humano")
 
     ]

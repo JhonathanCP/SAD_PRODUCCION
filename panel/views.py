@@ -860,6 +860,17 @@ def mi_consulta(request):
     nuevo_registro = Registro( ip = ip, usuario = username, url = url)
     nuevo_registro.save()
     return render(request,'mi_consulta/mi_consulta.html')
+@login_required(login_url = 'login')
+def sgd(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('sgd')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'mi_consulta/sgd.html')
+
 
 @login_required(login_url = 'login')
 def fenomeno_del_nino(request):
@@ -882,3 +893,25 @@ def salud_renal(request):
     nuevo_registro = Registro( ip = ip, usuario = username, url = url)
     nuevo_registro.save()
     return render(request,'salud_renal/salud_renal.html')
+@login_required(login_url = 'login')
+def inmunizaciones(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('inmunizaciones')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'inmunizaciones/inmunizaciones.html') 
+
+@login_required(login_url = 'login')
+
+def capital_humano(request):
+    ip1 = request.META['REMOTE_ADDR']  
+    ip = format(ip1)  
+    url = reverse('capital_humano')
+    username = request.user.username
+    # guardar en tabla registro
+    nuevo_registro = Registro( ip = ip, usuario = username, url = url)
+    nuevo_registro.save()
+    return render(request,'capital_humano/capital_humano.html')

@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     'channels',
     'channels_redis',
     'django_recaptcha'
-    
-    
 ]
 
 RECAPTCHA_SITE_KEY = '6LfJ-TkpAAAAAGk-luwLSzw3ihrxMprK85ckCalL'
@@ -71,8 +69,12 @@ MIDDLEWARE = [
     'panel.middleware.SessionIdleTimeoutMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware',
-    
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://sad.essalud.gob.pe",
+]
+
 
 #Add CHANNEL_LAYERS
 
