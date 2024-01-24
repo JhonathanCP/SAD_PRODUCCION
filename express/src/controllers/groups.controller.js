@@ -25,10 +25,12 @@ export const getGroup = async (req, res) => {
 
 export const createGroups = async (req, res) => {
     try {
-        const {nombre, descripcion} = req.body
+        const {nombre, descripcion, icono, activo} = req.body
         const group = new Group()
         group.nombre = nombre
         group.descripcion = descripcion
+        group.icono = icono
+        group.activo = activo
         await group.save()
         res.json(group)
     } catch (error) {
@@ -38,18 +40,34 @@ export const createGroups = async (req, res) => {
 
 export const updateGroups = async (req, res) => {
     try {
-        const {id} = req.params
-        const {nombre, descripcion, icono} = req.body
-        const group = await Group.findByPk(id)
-        group.nombre = nombre
-        group.descripcion = descripcion
-        group.descripcion = icono
-        await group.save()
-        res.json(group)
+        const { id } = req.params;
+        const { nombre, descripcion, icono, activo } = req.body;
+
+        // Buscar el grupo por su ID
+        const group = await Group.findByPk(id);
+
+        // Verificar si se encontró el grupo
+        if (!group) {
+            return res.status(404).json({ message: 'Grupo no encontrado' });
+        }
+
+        // Actualizar los campos del grupo
+        if (nombre){
+            group.nombre = nombre;
+        } 
+        group.descripcion = descripcion;
+        group.icono = icono; // Corregir aquí: usar 'icono' en lugar de 'descripcion'
+        group.activo = activo
+
+        // Guardar los cambios en la base de datos
+        await group.save();
+
+        // Devolver el grupo actualizado
+        res.json(group);
     } catch (error) {
-        return res.status(500).json({message: error.message})
+        return res.status(500).json({ message: error.message });
     }
-}
+};
 
 export const deleteGroups = async (req, res) => {
     try {
@@ -103,11 +121,10 @@ export const getInfo = async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
+        // Obtener grupos y reportes del usuario
+        const groups = await user.getGroups({ where: { activo: true } });
+        const reports = await user.getReports({ where: { activo: true } });
 
-
-        const groups = await user.getGroups();
-        const reports = await user.getReports();
-        
         // Construir la respuesta
         const response = {
             groups: groups,

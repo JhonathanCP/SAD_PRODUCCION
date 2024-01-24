@@ -4,7 +4,7 @@ import { verifyToken, isModerator, isAdmin, isAdminOrModerator } from "../middle
 
 const groupsRouter = Router()
 
-groupsRouter.get('/', [verifyToken, isAdminOrModerator], getGroups);
+groupsRouter.get('/', getGroups);
 groupsRouter.post('/', [verifyToken, isAdminOrModerator], createGroups);
 groupsRouter.get('/panel', [verifyToken], getInfo);
 groupsRouter.put('/:id', [verifyToken, isAdminOrModerator],updateGroups);

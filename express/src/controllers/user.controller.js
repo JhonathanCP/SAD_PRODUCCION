@@ -44,7 +44,7 @@ try {
 
 export const getUser = async (req, res) => {
 try {
-    const user = await User.findByPk(req.params.userId, {
+    const user = await User.findByPk(req.params.id, {
     include: Role, // Incluir roles en la respuesta
     });
 
@@ -55,7 +55,9 @@ try {
     return res.json({
         id: user.id,
         username: user.username,
-        correo: user.correo
+        correo: user.correo,
+        groups: await user.getGroups(),
+        reports: await user.getReports() // Retorna los reportes actualizados del usuario
     });
 } catch (error) {
     console.error(error);
