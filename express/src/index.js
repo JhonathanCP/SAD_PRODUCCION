@@ -4,11 +4,12 @@ import './models/Group.js'
 import './models/Report.js'
 import './models/User.js'
 import './models/Role.js'
+import './models/Solicitud.js'
 
 async function main() {
     try {
         await sequelize.authenticate();
-        await sequelize.sync()
+        await sequelize.sync();
         console.log('Database connected');
         app.listen(4000);
         console.log("Serven is listening on port", 4000);

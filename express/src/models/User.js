@@ -3,6 +3,9 @@ import { sequelize } from '../database/database.js';
 import { Role } from "../models/Role.js";
 import { Report } from "../models/Report.js";
 import { Group } from "../models/Group.js";
+import { DependenciaPrincipal } from '../models/DependenciaPrincipal.js'; // Importa el modelo DependenciaPrincipal
+import { Dependencia } from '../models/Dependencia.js'; // Importa el modelo Dependencia
+
 import bcrypt from "bcryptjs";
 
 export const User = sequelize.define('user', {
@@ -37,16 +40,19 @@ export const User = sequelize.define('user', {
     dni: {
         type: DataTypes.STRING,
         unique: true,
-    },    
-    area: {
-        type: DataTypes.STRING
-    },
-    red: {
-        type: DataTypes.STRING
     },
     activo: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
+    },
+    regimen: {
+        type: DataTypes.STRING,
+    },
+    cargo: {
+        type: DataTypes.STRING,
+    },
+    celular: {
+        type: DataTypes.STRING,
     }
 });
 
@@ -76,3 +82,5 @@ User.belongsToMany(Group, { through: 'userGroup', foreignKey: 'userId' });
 Group.belongsToMany(User, { through: 'userGroup', foreignKey: 'groupId' });
 User.belongsToMany(Report, { through: 'userReport', foreignKey: 'userId' });
 Report.belongsToMany(User, { through: 'userReport', foreignKey: 'reportId' });
+User.belongsTo(DependenciaPrincipal, { foreignKey: 'dependenciaPrincipalId' }); // Agrega esta línea
+User.belongsTo(Dependencia, { foreignKey: 'dependenciaId' }); // Agrega esta línea

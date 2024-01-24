@@ -6,6 +6,7 @@ import groupsRouter from "./routes/groups.routes.js"
 import reportsRouter from "./routes/reports.routes.js"
 import authRouter from "./routes/auth.routes.js"
 import usersRoutes from "./routes/user.routes.js";
+import solicitudRoutes from './routes/solicitud.routes.js';
 import {createRoles, createAdmin} from "./libs/initialSetup.js"
 import path from "path"
 
@@ -32,15 +33,14 @@ app.use('/groups',groupsRouter)
 app.use('/reports',reportsRouter)
 app.use('/auth', authRouter)
 app.use('/user', usersRoutes)
+app.use('/solicitudes', solicitudRoutes);
 
 // Archivos estáticos
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-app.use(express.static(path.join(__dirname, 'dist')));
-app.get('/demo', (req, res) => {
-  res.send('Prueba');
-});
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+app.use('/solicitudes', express.static(path.join(__dirname, 'solicitudes')));
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'solicitudes', 'index.html'));
+// });
 
 export default app;

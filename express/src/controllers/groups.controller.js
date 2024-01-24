@@ -122,8 +122,8 @@ export const getInfo = async (req, res) => {
         }
 
         // Obtener grupos y reportes del usuario
-        const groups = await user.getGroups({ where: { activo: true } });
-        const reports = await user.getReports({ where: { activo: true } });
+        const groups = await user.getGroups({ where: { activo: true }, order: [['id', 'ASC']] });
+        const reports = await user.getReports({ where: { activo: true }, order: [['id', 'ASC']] });
 
         // Construir la respuesta
         const response = {
