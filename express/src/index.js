@@ -9,7 +9,7 @@ import './models/Solicitud.js'
 async function main() {
     try {
         await sequelize.authenticate();
-        await sequelize.sync({force: true});
+        await sequelize.sync({alter: true});
         console.log('Database connected');
         app.listen(4000);
         console.log("Serven is listening on port", 4000);
