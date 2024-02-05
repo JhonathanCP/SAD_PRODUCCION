@@ -103,7 +103,7 @@ export const getGroupReports = async (req, res) => {
     }
 };
 
-export const getInfo = async (req, res) => {
+export const getGroupsByUser = async (req, res) => {
     try {
         const token = req.headers["x-access-token"];
 
@@ -123,11 +123,43 @@ export const getInfo = async (req, res) => {
 
         // Obtener grupos y reportes del usuario
         const groups = await user.getGroups({ where: { activo: true }, order: [['id', 'ASC']] });
-        const reports = await user.getReports({ where: { activo: true }, order: [['id', 'ASC']] });
 
         // Construir la respuesta
         const response = {
             groups: groups,
+        };
+
+        return res.status(200).json(response);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error fetching user information" });
+    }
+};
+
+export const getReportsByUserAndGroup = async (req, res) => {
+    const {id} = req.params
+    try {
+        const token = req.headers["x-access-token"];
+
+        if (!token) {
+            return res.status(403).json({ message: "No token provided" });
+        }
+
+        const decoded = jwt.verify(token, SECRET);
+        const userId = decoded.id;
+
+        // Buscar usuario por su ID
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Obtener grupos y reportes del usuario
+        const reports = await user.getReports({ where: { activo: true, groupId: id  }, order: [['id', 'ASC']] });
+
+        // Construir la respuesta
+        const response = {
             reports: reports
         };
 

@@ -64,7 +64,7 @@ export const subirPdf = async (req, res) => {
         // Asociar el contenido del PDF a la solicitud con el ID correspondiente
         const solicitud = await Solicitud.findByPk(id);
         if (solicitud) {
-            solicitud.estado = 'PENDIENTE FIRMA';
+            solicitud.estado = 'PENDIENTE POR APROBAR';
             solicitud.pdfContent = pdfContent;
             await solicitud.save();
 

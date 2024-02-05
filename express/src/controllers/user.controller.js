@@ -3,23 +3,33 @@ import { Role } from "../models/Role.js";
 import { Group } from "../models/Group.js";
 import { Report } from "../models/Report.js";
 
+import { generatePassword, generateUsername } from '../libs/generateUser.js'; // Asume que tienes una función para generar contraseñas
+
 export const createUser = async (req, res) => {
     try {
-        const { username, correo, password } = req.body;
+        const { nombres, apellidos, correo, dni } = req.body;
 
-        // Get the 'admin' role
+        // Get the 'user' role
         const role = await Role.findOne({ where: { nombre: 'user' } });
 
-        // Create a new admin user
+        // Crear una nueva contraseña combinando correo y dni
+        const password = generatePassword(correo, dni);
+        const username = generateUsername(correo);
+
+        // Crear un nuevo usuario con la contraseña generada
         const newUser = await User.create({
+            nombres: nombres,
+            apellidos: apellidos,
             username: username,
             correo: correo,
+            dni: dni,
             password: password,
         });
 
+        // Asignar el rol al nuevo usuario
         await newUser.addRole(role);
 
-        console.log(`New user created: ${newUser.correo}`);
+        console.log(`Nuevo usuario creado: ${newUser.correo}`);
 
         return res.status(200).json({
             id: newUser.id,
@@ -28,7 +38,7 @@ export const createUser = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ message: "Error creating user" });
+        return res.status(500).json({ message: "Error al crear el usuario" });
     }
 };
 
@@ -64,7 +74,60 @@ try {
     return res.status(500).json({ message: "Error fetching user" });
 }
 };
+export const editUser = async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const { nombres, apellidos, correo, dni } = req.body;
 
+        const user = await User.findByPk(userId);
+        if (!user) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        // Actualizar la información del usuario
+        await user.update({
+            nombres: nombres,
+            apellidos: apellidos,
+            correo: correo,
+            dni: dni,
+        });
+
+        console.log(`Usuario actualizado: ${user.correo}`);
+
+        return res.status(200).json({
+            id: user.id,
+            username: user.username,
+            correo: user.correo,
+            nombres: user.nombres,
+            apellidos: user.apellidos,
+            dni: user.dni,
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error al editar el usuario" });
+    }
+};
+
+export const deleteUser = async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        const user = await User.findByPk(userId);
+        if (!user) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        // Eliminar al usuario
+        await user.destroy();
+
+        console.log(`Usuario eliminado: ${user.correo}`);
+
+        return res.status(200).json({ message: "Usuario eliminado exitosamente" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error al eliminar el usuario" });
+    }
+};
 export const addRoleToUser = async (req, res) => {
     try {
         const { userId, roleId } = req.params;
