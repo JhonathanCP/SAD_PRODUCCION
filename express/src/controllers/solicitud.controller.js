@@ -38,7 +38,7 @@ export const getSolicitudByDni = async (req, res) => {
 export const createSolicitud = async (req, res) => {
     try {
         const solicitudData = req.body;
-        solicitudData.estado = 'PENDIENTE FIRMA'
+        solicitudData.estado = '0'
         // Crear la solicitud sin el PDF
         const nuevaSolicitud = await Solicitud.create(solicitudData);
 
@@ -64,7 +64,7 @@ export const subirPdf = async (req, res) => {
         // Asociar el contenido del PDF a la solicitud con el ID correspondiente
         const solicitud = await Solicitud.findByPk(id);
         if (solicitud) {
-            solicitud.estado = 'PENDIENTE POR APROBAR';
+            solicitud.estado = '1';
             solicitud.pdfContent = pdfContent;
             await solicitud.save();
 
@@ -80,6 +80,51 @@ export const subirPdf = async (req, res) => {
 
 // Aplicar el middleware de multer para manejar la carga de archivos
 export const uploadPdfMiddleware = upload.single('pdfFile');
+
+// Aceptar una solicitud
+export const acceptSolicitud = async (req, res) => {
+    const { dni } = req.params;
+    try {
+        const solicitud = await Solicitud.findByPk(dni);
+        if (solicitud) {
+            // Verificar si la solicitud tiene el estado adecuado para ser aceptada
+            if (solicitud.estado === '1') {
+                solicitud.estado = '2';
+                await solicitud.save();
+                res.json(solicitud);
+            } else {
+                res.status(400).json({ error: 'La solicitud no está pendiente por aprobar.' });
+            }
+        } else {
+            res.status(404).json({ error: 'Solicitud no encontrada.' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al aceptar la solicitud.' });
+    }
+};
+
+export const denySolicitud = async (req, res) => {
+    const { dni } = req.params;
+    try {
+        const solicitud = await Solicitud.findByPk(dni);
+        if (solicitud) {
+            // Verificar si la solicitud tiene el estado adecuado para ser aceptada
+            if (solicitud.estado === '1') {
+                solicitud.estado = '3';
+                await solicitud.save();
+                res.json(solicitud);
+            } else {
+                res.status(400).json({ error: 'La solicitud no está pendiente por aprobar.' });
+            }
+        } else {
+            res.status(404).json({ error: 'Solicitud no encontrada.' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al aceptar la solicitud.' });
+    }
+};
 
 // Actualizar una solicitud
 export const updateSolicitud = async (req, res) => {
